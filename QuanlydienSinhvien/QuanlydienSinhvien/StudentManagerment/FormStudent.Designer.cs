@@ -44,6 +44,7 @@
             this.lstStudent.Name = "lstStudent";
             this.lstStudent.Size = new System.Drawing.Size(696, 286);
             this.lstStudent.TabIndex = 0;
+            this.lstStudent.DoubleClick += new System.EventHandler(this.lstStudent_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -79,7 +80,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormStudent";
-            this.Text = "FormStudent";
+            this.Text = "DANH SÁCH SINH VIÊN";
             this.Load += new System.EventHandler(this.FormStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstStudent)).EndInit();
             this.menuStrip1.ResumeLayout(false);

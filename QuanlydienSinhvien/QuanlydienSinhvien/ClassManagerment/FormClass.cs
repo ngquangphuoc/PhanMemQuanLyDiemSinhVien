@@ -53,7 +53,7 @@ namespace QuanlydienSinhvien.ClassManagerment
                         db.lophocs.Remove(lop);
                         db.SaveChanges();
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         MessageBox.Show("Can't not delete class");
                     }
