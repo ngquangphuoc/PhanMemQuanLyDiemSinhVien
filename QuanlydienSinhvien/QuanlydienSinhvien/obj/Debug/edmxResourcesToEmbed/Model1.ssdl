@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlydiemSinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="hocky">
+    <Key>
+      <PropertyRef Name="hocki_id" />
+    </Key>
+    <Property Name="hocki_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenhocky" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ketquahoctap">
+    <Key>
+      <PropertyRef Name="kqht_id" />
+    </Key>
+    <Property Name="kqht_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mssv" Type="char" MaxLength="10" />
+    <Property Name="lophoc_id" Type="int" />
+    <Property Name="monhoc_id" Type="int" />
+    <Property Name="chuyencan" Type="int" />
+    <Property Name="giuaki" Type="int" />
+    <Property Name="cuoiki" Type="int" />
+    <Property Name="DTB" Type="float" />
+    <Property Name="hocki_id" Type="int" />
+  </EntityType>
+  <EntityType Name="lophoc">
+    <Key>
+      <PropertyRef Name="lophoc_id" />
+    </Key>
+    <Property Name="lophoc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenlop" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="monhoc">
+    <Key>
+      <PropertyRef Name="monhoc_id" />
+    </Key>
+    <Property Name="monhoc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="maMH" Type="char" MaxLength="10" />
+    <Property Name="tenMH" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sinhvien">
+    <Key>
+      <PropertyRef Name="mssv" />
+    </Key>
+    <Property Name="mssv" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="hovaten" Type="varchar" MaxLength="50" />
+    <Property Name="gioitinh" Type="varchar" MaxLength="50" />
+    <Property Name="sdt" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="lophoc_id" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_ketquahoctap_hocky">
+    <End Role="hocky" Type="Self.hocky" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hocky">
+        <PropertyRef Name="hocki_id" />
+      </Principal>
+      <Dependent Role="ketquahoctap">
+        <PropertyRef Name="hocki_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ketquahoctap_lophoc">
+    <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lophoc">
+        <PropertyRef Name="lophoc_id" />
+      </Principal>
+      <Dependent Role="ketquahoctap">
+        <PropertyRef Name="lophoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ketquahoctap_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Principal>
+      <Dependent Role="ketquahoctap">
+        <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sinhvien_lophoc">
+    <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lophoc">
+        <PropertyRef Name="lophoc_id" />
+      </Principal>
+      <Dependent Role="sinhvien">
+        <PropertyRef Name="lophoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quanlydiemSinhVienModelStoreContainer">
+    <EntitySet Name="hocky" EntityType="Self.hocky" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ketquahoctap" EntityType="Self.ketquahoctap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="lophoc" EntityType="Self.lophoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sinhvien" EntityType="Self.sinhvien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ketquahoctap_hocky" Association="Self.FK_ketquahoctap_hocky">
+      <End Role="hocky" EntitySet="hocky" />
+      <End Role="ketquahoctap" EntitySet="ketquahoctap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ketquahoctap_lophoc" Association="Self.FK_ketquahoctap_lophoc">
+      <End Role="lophoc" EntitySet="lophoc" />
+      <End Role="ketquahoctap" EntitySet="ketquahoctap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ketquahoctap_monhoc" Association="Self.FK_ketquahoctap_monhoc">
+      <End Role="monhoc" EntitySet="monhoc" />
+      <End Role="ketquahoctap" EntitySet="ketquahoctap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sinhvien_lophoc" Association="Self.FK_sinhvien_lophoc">
+      <End Role="lophoc" EntitySet="lophoc" />
+      <End Role="sinhvien" EntitySet="sinhvien" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

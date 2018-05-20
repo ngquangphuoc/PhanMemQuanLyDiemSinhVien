@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="quanlydiemSinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="hocky">
+    <Key>
+      <PropertyRef Name="hocki_id" />
+    </Key>
+    <Property Name="hocki_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenhocky" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ketquahoctaps" Relationship="Self.FK_ketquahoctap_hocky" FromRole="hocky" ToRole="ketquahoctap" />
+  </EntityType>
+  <EntityType Name="ketquahoctap">
+    <Key>
+      <PropertyRef Name="kqht_id" />
+    </Key>
+    <Property Name="kqht_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mssv" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="lophoc_id" Type="Int32" />
+    <Property Name="monhoc_id" Type="Int32" />
+    <Property Name="chuyencan" Type="Int32" />
+    <Property Name="giuaki" Type="Int32" />
+    <Property Name="cuoiki" Type="Int32" />
+    <Property Name="DTB" Type="Double" />
+    <Property Name="hocki_id" Type="Int32" />
+    <NavigationProperty Name="hocky" Relationship="Self.FK_ketquahoctap_hocky" FromRole="ketquahoctap" ToRole="hocky" />
+    <NavigationProperty Name="lophoc" Relationship="Self.FK_ketquahoctap_lophoc" FromRole="ketquahoctap" ToRole="lophoc" />
+    <NavigationProperty Name="monhoc" Relationship="Self.FK_ketquahoctap_monhoc" FromRole="ketquahoctap" ToRole="monhoc" />
+  </EntityType>
+  <EntityType Name="lophoc">
+    <Key>
+      <PropertyRef Name="lophoc_id" />
+    </Key>
+    <Property Name="lophoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenlop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ketquahoctaps" Relationship="Self.FK_ketquahoctap_lophoc" FromRole="lophoc" ToRole="ketquahoctap" />
+    <NavigationProperty Name="sinhviens" Relationship="Self.FK_sinhvien_lophoc" FromRole="lophoc" ToRole="sinhvien" />
+  </EntityType>
+  <EntityType Name="monhoc">
+    <Key>
+      <PropertyRef Name="monhoc_id" />
+    </Key>
+    <Property Name="monhoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ketquahoctaps" Relationship="Self.FK_ketquahoctap_monhoc" FromRole="monhoc" ToRole="ketquahoctap" />
+  </EntityType>
+  <EntityType Name="sinhvien">
+    <Key>
+      <PropertyRef Name="mssv" />
+    </Key>
+    <Property Name="mssv" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="lophoc_id" Type="Int32" />
+    <NavigationProperty Name="lophoc" Relationship="Self.FK_sinhvien_lophoc" FromRole="sinhvien" ToRole="lophoc" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_ketquahoctap_hocky">
+    <End Role="hocky" Type="Self.hocky" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hocky">
+        <PropertyRef Name="hocki_id" />
+      </Principal>
+      <Dependent Role="ketquahoctap">
+        <PropertyRef Name="hocki_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ketquahoctap_lophoc">
+    <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lophoc">
+        <PropertyRef Name="lophoc_id" />
+      </Principal>
+      <Dependent Role="ketquahoctap">
+        <PropertyRef Name="lophoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ketquahoctap_monhoc">
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="monhoc">
+        <PropertyRef Name="monhoc_id" />
+      </Principal>
+      <Dependent Role="ketquahoctap">
+        <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_sinhvien_lophoc">
+    <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="lophoc">
+        <PropertyRef Name="lophoc_id" />
+      </Principal>
+      <Dependent Role="sinhvien">
+        <PropertyRef Name="lophoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="quanlydiemSinhVienEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="hockies" EntityType="Self.hocky" />
+    <EntitySet Name="ketquahoctaps" EntityType="Self.ketquahoctap" />
+    <EntitySet Name="lophocs" EntityType="Self.lophoc" />
+    <EntitySet Name="monhocs" EntityType="Self.monhoc" />
+    <EntitySet Name="sinhviens" EntityType="Self.sinhvien" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_ketquahoctap_hocky" Association="Self.FK_ketquahoctap_hocky">
+      <End Role="hocky" EntitySet="hockies" />
+      <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ketquahoctap_lophoc" Association="Self.FK_ketquahoctap_lophoc">
+      <End Role="lophoc" EntitySet="lophocs" />
+      <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ketquahoctap_monhoc" Association="Self.FK_ketquahoctap_monhoc">
+      <End Role="monhoc" EntitySet="monhocs" />
+      <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+    </AssociationSet>
+    <AssociationSet Name="FK_sinhvien_lophoc" Association="Self.FK_sinhvien_lophoc">
+      <End Role="lophoc" EntitySet="lophocs" />
+      <End Role="sinhvien" EntitySet="sinhviens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

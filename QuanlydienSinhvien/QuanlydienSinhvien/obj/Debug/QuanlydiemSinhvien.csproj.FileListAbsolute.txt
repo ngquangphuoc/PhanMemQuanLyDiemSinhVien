@@ -12,3 +12,12 @@ C:\Users\Quang Phuoc\documents\visual studio 2013\Projects\QuanlydienSinhvien\Qu
 C:\Users\Quang Phuoc\documents\visual studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydiemSinhvien.csproj.GenerateResource.Cache
 C:\Users\Quang Phuoc\documents\visual studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.exe
 C:\Users\Quang Phuoc\documents\visual studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.pdb
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.dll
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.xml
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.ClassManagerment.FormClass.resources
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudentManagerment.FormStudent.resources
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudentManagerment.FormAddStudent.resources
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.ClassManagerment.FormAddClass.resources
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.ClassManagerment.FormEditClass.resources
