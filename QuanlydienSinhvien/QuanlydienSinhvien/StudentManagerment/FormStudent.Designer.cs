@@ -60,15 +60,15 @@
             // btnAddStudent
             // 
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(85, 20);
-            this.btnAddStudent.Text = "Add Student";
+            this.btnAddStudent.Size = new System.Drawing.Size(101, 20);
+            this.btnAddStudent.Text = "Thêm Sinh viên";
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // btnDeleteStudent
             // 
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(96, 20);
-            this.btnDeleteStudent.Text = "Delete Student";
+            this.btnDeleteStudent.Size = new System.Drawing.Size(90, 20);
+            this.btnDeleteStudent.Text = "Xóa Sinh viên";
             this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
             // FormStudent

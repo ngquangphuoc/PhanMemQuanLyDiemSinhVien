@@ -157,6 +157,44 @@
     <Compile Include="StudentManagerment\FormStudent.Designer.cs">
       <DependentUpon>FormStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudyResultsManagerment.cs" />
+    <Compile Include="StudyResultsManagerment\FormAddStudyResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudyResultsManagerment\FormAddStudyResults.Designer.cs">
+      <DependentUpon>FormAddStudyResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudyResultsManagerment\FormEditStudyResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudyResultsManagerment\FormEditStudyResults.Designer.cs">
+      <DependentUpon>FormEditStudyResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudyResultsManagerment\FormStudyResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudyResultsManagerment\FormStudyResults.Designer.cs">
+      <DependentUpon>FormStudyResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudyResultsManagerment_2.cs" />
+    <Compile Include="SubjectManagerment\FormAddSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectManagerment\FormAddSubject.Designer.cs">
+      <DependentUpon>FormAddSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectManagerment\FormEditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectManagerment\FormEditSubject.Designer.cs">
+      <DependentUpon>FormEditSubject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubjectManagerment\FormSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubjectManagerment\FormSubject.Designer.cs">
+      <DependentUpon>FormSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -205,6 +243,21 @@
     <EmbeddedResource Include="StudentManagerment\FormStudent.resx">
       <DependentUpon>FormStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudyResultsManagerment\FormAddStudyResults.resx">
+      <DependentUpon>FormAddStudyResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudyResultsManagerment\FormStudyResults.resx">
+      <DependentUpon>FormStudyResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectManagerment\FormAddSubject.resx">
+      <DependentUpon>FormAddSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectManagerment\FormEditSubject.resx">
+      <DependentUpon>FormEditSubject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubjectManagerment\FormSubject.resx">
+      <DependentUpon>FormSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
@@ -239,6 +292,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -204,7 +204,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormEditStudent";
-            this.Text = "FormEditStudent";
+            this.Text = "CẬP NHẬT SINH VIÊN";
             this.ResumeLayout(false);
             this.PerformLayout();
 

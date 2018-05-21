@@ -60,15 +60,15 @@
             // btnAddClass
             // 
             this.btnAddClass.Name = "btnAddClass";
-            this.btnAddClass.Size = new System.Drawing.Size(71, 20);
-            this.btnAddClass.Text = "Add Class";
+            this.btnAddClass.Size = new System.Drawing.Size(96, 20);
+            this.btnAddClass.Text = "Thêm Lớp học";
             this.btnAddClass.Click += new System.EventHandler(this.btnAddClass_Click);
             // 
             // btnDeleteClass
             // 
             this.btnDeleteClass.Name = "btnDeleteClass";
-            this.btnDeleteClass.Size = new System.Drawing.Size(82, 20);
-            this.btnDeleteClass.Text = "Delete Class";
+            this.btnDeleteClass.Size = new System.Drawing.Size(85, 20);
+            this.btnDeleteClass.Text = "Xóa Lớp học";
             this.btnDeleteClass.Click += new System.EventHandler(this.btnDeleteClass_Click);
             // 
             // FormClass
