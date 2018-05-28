@@ -30,6 +30,8 @@ public partial class sinhvien
 
     public Nullable<int> lophoc_id { get; set; }
 
+    public Nullable<System.DateTime> ngaysinh { get; set; }
+
 
 
     public virtual lophoc lophoc { get; set; }

@@ -81,6 +81,7 @@
             this.Controls.Add(this.label2);
             this.Name = "FormEditClass";
             this.Text = "CẬP NHẬT LỚP HỌC";
+            this.Load += new System.EventHandler(this.FormEditClass_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

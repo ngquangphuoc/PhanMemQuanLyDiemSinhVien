@@ -20,13 +20,13 @@ namespace QuanlydienSinhvien.ClassManagerment
         private void btnAdd_Click(object sender, EventArgs e)
         {
             lophoc qllophoc = new lophoc();
-            //qllophoc.lophoc_id = int.Parse(this.txtId.Text);
             qllophoc.tenlop = this.txtName.Text;
             try
             {
                 var db = new quanlydiemSinhVienEntities();
                 db.lophocs.Add(qllophoc);
                 db.SaveChanges();
+                MessageBox.Show("Thêm Thành Công");
             }
             catch (Exception ex)
             {

@@ -46,6 +46,7 @@
     <Property Name="sdt" Type="varchar" MaxLength="50" />
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="lophoc_id" Type="int" />
+    <Property Name="ngaysinh" Type="date" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>

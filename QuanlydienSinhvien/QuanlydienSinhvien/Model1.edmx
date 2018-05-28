@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="quanlydiemSinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="quanlydiemSinhVienModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="hocky">
           <Key>
             <PropertyRef Name="hocki_id" />
@@ -51,6 +51,7 @@
           <Property Name="sdt" Type="varchar" MaxLength="50" />
           <Property Name="email" Type="varchar" MaxLength="50" />
           <Property Name="lophoc_id" Type="int" />
+          <Property Name="ngaysinh" Type="date" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -142,18 +143,41 @@
             <End Role="sinhvien" EntitySet="sinhvien" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="quanlydiemSinhVienModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="quanlydiemSinhVienEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hockies" EntityType="quanlydiemSinhVienModel.hocky" />
+          <EntitySet Name="ketquahoctaps" EntityType="quanlydiemSinhVienModel.ketquahoctap" />
+          <EntitySet Name="lophocs" EntityType="quanlydiemSinhVienModel.lophoc" />
+          <EntitySet Name="monhocs" EntityType="quanlydiemSinhVienModel.monhoc" />
+          <EntitySet Name="sinhviens" EntityType="quanlydiemSinhVienModel.sinhvien" />
+          <EntitySet Name="sysdiagrams" EntityType="quanlydiemSinhVienModel.sysdiagram" />
+          <AssociationSet Name="FK_ketquahoctap_hocky" Association="quanlydiemSinhVienModel.FK_ketquahoctap_hocky">
+            <End Role="hocky" EntitySet="hockies" />
+            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ketquahoctap_lophoc" Association="quanlydiemSinhVienModel.FK_ketquahoctap_lophoc">
+            <End Role="lophoc" EntitySet="lophocs" />
+            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ketquahoctap_monhoc" Association="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc">
+            <End Role="monhoc" EntitySet="monhocs" />
+            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sinhvien_lophoc" Association="quanlydiemSinhVienModel.FK_sinhvien_lophoc">
+            <End Role="lophoc" EntitySet="lophocs" />
+            <End Role="sinhvien" EntitySet="sinhviens" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="hocky">
           <Key>
             <PropertyRef Name="hocki_id" />
           </Key>
           <Property Name="hocki_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenhocky" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ketquahoctaps" Relationship="Self.FK_ketquahoctap_hocky" FromRole="hocky" ToRole="ketquahoctap" />
+          <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_hocky" FromRole="hocky" ToRole="ketquahoctap" />
         </EntityType>
         <EntityType Name="ketquahoctap">
           <Key>
@@ -168,9 +192,9 @@
           <Property Name="cuoiki" Type="Int32" />
           <Property Name="DTB" Type="Double" />
           <Property Name="hocki_id" Type="Int32" />
-          <NavigationProperty Name="hocky" Relationship="Self.FK_ketquahoctap_hocky" FromRole="ketquahoctap" ToRole="hocky" />
-          <NavigationProperty Name="lophoc" Relationship="Self.FK_ketquahoctap_lophoc" FromRole="ketquahoctap" ToRole="lophoc" />
-          <NavigationProperty Name="monhoc" Relationship="Self.FK_ketquahoctap_monhoc" FromRole="ketquahoctap" ToRole="monhoc" />
+          <NavigationProperty Name="hocky" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_hocky" FromRole="ketquahoctap" ToRole="hocky" />
+          <NavigationProperty Name="lophoc" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_lophoc" FromRole="ketquahoctap" ToRole="lophoc" />
+          <NavigationProperty Name="monhoc" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc" FromRole="ketquahoctap" ToRole="monhoc" />
         </EntityType>
         <EntityType Name="lophoc">
           <Key>
@@ -178,8 +202,8 @@
           </Key>
           <Property Name="lophoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="tenlop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ketquahoctaps" Relationship="Self.FK_ketquahoctap_lophoc" FromRole="lophoc" ToRole="ketquahoctap" />
-          <NavigationProperty Name="sinhviens" Relationship="Self.FK_sinhvien_lophoc" FromRole="lophoc" ToRole="sinhvien" />
+          <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_lophoc" FromRole="lophoc" ToRole="ketquahoctap" />
+          <NavigationProperty Name="sinhviens" Relationship="quanlydiemSinhVienModel.FK_sinhvien_lophoc" FromRole="lophoc" ToRole="sinhvien" />
         </EntityType>
         <EntityType Name="monhoc">
           <Key>
@@ -188,35 +212,36 @@
           <Property Name="monhoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="maMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="ketquahoctaps" Relationship="Self.FK_ketquahoctap_monhoc" FromRole="monhoc" ToRole="ketquahoctap" />
+          <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc" FromRole="monhoc" ToRole="ketquahoctap" />
         </EntityType>
         <EntityType Name="sinhvien">
           <Key>
             <PropertyRef Name="mssv" />
           </Key>
-          <Property Name="mssv" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mssv" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="lophoc_id" Type="Int32" />
-          <NavigationProperty Name="lophoc" Relationship="Self.FK_sinhvien_lophoc" FromRole="sinhvien" ToRole="lophoc" />
+          <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="lophoc" Relationship="quanlydiemSinhVienModel.FK_sinhvien_lophoc" FromRole="sinhvien" ToRole="lophoc" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_ketquahoctap_hocky">
-          <End Role="hocky" Type="Self.hocky" Multiplicity="0..1">
+          <End Type="quanlydiemSinhVienModel.hocky" Role="hocky" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+          <End Type="quanlydiemSinhVienModel.ketquahoctap" Role="ketquahoctap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hocky">
               <PropertyRef Name="hocki_id" />
@@ -227,10 +252,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ketquahoctap_lophoc">
-          <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
+          <End Type="quanlydiemSinhVienModel.lophoc" Role="lophoc" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+          <End Type="quanlydiemSinhVienModel.ketquahoctap" Role="ketquahoctap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="lophoc">
               <PropertyRef Name="lophoc_id" />
@@ -241,10 +266,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ketquahoctap_monhoc">
-          <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1">
+          <End Type="quanlydiemSinhVienModel.monhoc" Role="monhoc" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+          <End Type="quanlydiemSinhVienModel.ketquahoctap" Role="ketquahoctap" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="monhoc">
               <PropertyRef Name="monhoc_id" />
@@ -255,10 +280,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_sinhvien_lophoc">
-          <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
+          <End Type="quanlydiemSinhVienModel.lophoc" Role="lophoc" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
-          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="*" />
+          <End Type="quanlydiemSinhVienModel.sinhvien" Role="sinhvien" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="lophoc">
               <PropertyRef Name="lophoc_id" />
@@ -268,30 +293,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="quanlydiemSinhVienEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="hockies" EntityType="Self.hocky" />
-          <EntitySet Name="ketquahoctaps" EntityType="Self.ketquahoctap" />
-          <EntitySet Name="lophocs" EntityType="Self.lophoc" />
-          <EntitySet Name="monhocs" EntityType="Self.monhoc" />
-          <EntitySet Name="sinhviens" EntityType="Self.sinhvien" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_ketquahoctap_hocky" Association="Self.FK_ketquahoctap_hocky">
-            <End Role="hocky" EntitySet="hockies" />
-            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ketquahoctap_lophoc" Association="Self.FK_ketquahoctap_lophoc">
-            <End Role="lophoc" EntitySet="lophocs" />
-            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ketquahoctap_monhoc" Association="Self.FK_ketquahoctap_monhoc">
-            <End Role="monhoc" EntitySet="monhocs" />
-            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
-          </AssociationSet>
-          <AssociationSet Name="FK_sinhvien_lophoc" Association="Self.FK_sinhvien_lophoc">
-            <End Role="lophoc" EntitySet="lophocs" />
-            <End Role="sinhvien" EntitySet="sinhviens" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -301,63 +302,64 @@
           <EntitySetMapping Name="hockies">
             <EntityTypeMapping TypeName="quanlydiemSinhVienModel.hocky">
               <MappingFragment StoreEntitySet="hocky">
-                <ScalarProperty Name="hocki_id" ColumnName="hocki_id" />
                 <ScalarProperty Name="tenhocky" ColumnName="tenhocky" />
+                <ScalarProperty Name="hocki_id" ColumnName="hocki_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ketquahoctaps">
             <EntityTypeMapping TypeName="quanlydiemSinhVienModel.ketquahoctap">
               <MappingFragment StoreEntitySet="ketquahoctap">
-                <ScalarProperty Name="kqht_id" ColumnName="kqht_id" />
-                <ScalarProperty Name="mssv" ColumnName="mssv" />
-                <ScalarProperty Name="lophoc_id" ColumnName="lophoc_id" />
-                <ScalarProperty Name="monhoc_id" ColumnName="monhoc_id" />
-                <ScalarProperty Name="chuyencan" ColumnName="chuyencan" />
-                <ScalarProperty Name="giuaki" ColumnName="giuaki" />
-                <ScalarProperty Name="cuoiki" ColumnName="cuoiki" />
-                <ScalarProperty Name="DTB" ColumnName="DTB" />
                 <ScalarProperty Name="hocki_id" ColumnName="hocki_id" />
+                <ScalarProperty Name="DTB" ColumnName="DTB" />
+                <ScalarProperty Name="cuoiki" ColumnName="cuoiki" />
+                <ScalarProperty Name="giuaki" ColumnName="giuaki" />
+                <ScalarProperty Name="chuyencan" ColumnName="chuyencan" />
+                <ScalarProperty Name="monhoc_id" ColumnName="monhoc_id" />
+                <ScalarProperty Name="lophoc_id" ColumnName="lophoc_id" />
+                <ScalarProperty Name="mssv" ColumnName="mssv" />
+                <ScalarProperty Name="kqht_id" ColumnName="kqht_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="lophocs">
             <EntityTypeMapping TypeName="quanlydiemSinhVienModel.lophoc">
               <MappingFragment StoreEntitySet="lophoc">
-                <ScalarProperty Name="lophoc_id" ColumnName="lophoc_id" />
                 <ScalarProperty Name="tenlop" ColumnName="tenlop" />
+                <ScalarProperty Name="lophoc_id" ColumnName="lophoc_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="monhocs">
             <EntityTypeMapping TypeName="quanlydiemSinhVienModel.monhoc">
               <MappingFragment StoreEntitySet="monhoc">
-                <ScalarProperty Name="monhoc_id" ColumnName="monhoc_id" />
-                <ScalarProperty Name="maMH" ColumnName="maMH" />
                 <ScalarProperty Name="tenMH" ColumnName="tenMH" />
+                <ScalarProperty Name="maMH" ColumnName="maMH" />
+                <ScalarProperty Name="monhoc_id" ColumnName="monhoc_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sinhviens">
             <EntityTypeMapping TypeName="quanlydiemSinhVienModel.sinhvien">
               <MappingFragment StoreEntitySet="sinhvien">
-                <ScalarProperty Name="mssv" ColumnName="mssv" />
-                <ScalarProperty Name="hovaten" ColumnName="hovaten" />
-                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
-                <ScalarProperty Name="sdt" ColumnName="sdt" />
-                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="ngaysinh" ColumnName="ngaysinh" />
                 <ScalarProperty Name="lophoc_id" ColumnName="lophoc_id" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="sdt" ColumnName="sdt" />
+                <ScalarProperty Name="gioitinh" ColumnName="gioitinh" />
+                <ScalarProperty Name="hovaten" ColumnName="hovaten" />
+                <ScalarProperty Name="mssv" ColumnName="mssv" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="quanlydiemSinhVienModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

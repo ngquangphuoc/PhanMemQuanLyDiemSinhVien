@@ -28,6 +28,7 @@ namespace QuanlydienSinhvien.StudentManagerment
             var list = db.sinhviens.ToList();
             this.lstStudent.DataSource = list;
             this.lstStudent.Columns["lophoc_id"].Visible = false;
+            this.lstStudent.Columns["lophoc"].Visible = false;
         }
 
         private void btnAddStudent_Click(object sender, EventArgs e)

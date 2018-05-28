@@ -12,12 +12,18 @@ namespace QuanlydienSinhvien.ClassManagerment
 {
     public partial class FormEditClass : Form
     {
-        private lophoc lop;
-
         public FormEditClass(lophoc lop)
         {
             InitializeComponent();
             this.lop = lop;
+        }
+
+        private lophoc lop;
+
+        private void FormEditClass_Load(object sender, EventArgs e)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            this.txtName.Text = lop.tenlop;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -29,6 +35,7 @@ namespace QuanlydienSinhvien.ClassManagerment
                 newClass.tenlop = this.txtName.Text;
                 db.Entry(newClass).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
+                MessageBox.Show("Cập nhật thành công");
                 this.Close();
             }
             catch (Exception Ex)

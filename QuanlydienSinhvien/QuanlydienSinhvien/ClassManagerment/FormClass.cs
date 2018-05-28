@@ -20,6 +20,7 @@ namespace QuanlydienSinhvien.ClassManagerment
         private void FormClass_Load(object sender, EventArgs e)
         {
             this.ShowClassList();
+            this.lstClass.Columns["lophoc_id"].Visible = false;
         }
 
         private void ShowClassList()
@@ -52,10 +53,11 @@ namespace QuanlydienSinhvien.ClassManagerment
                         lophoc lop = db.lophocs.Find(item.lophoc_id);
                         db.lophocs.Remove(lop);
                         db.SaveChanges();
+                        MessageBox.Show("Xóa Thành công");
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Can't not delete class");
+                        MessageBox.Show("Xóa Thất Bại");
                     }
                 }
             }
