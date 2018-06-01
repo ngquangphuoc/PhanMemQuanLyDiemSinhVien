@@ -43,11 +43,11 @@ namespace QuanlydienSinhvien.StudentManagerment
                 var db = new quanlydiemSinhVienEntities();
                 db.sinhviens.Add(student);
                 db.SaveChanges();
-                MessageBox.Show("Thêm mới Sinh viên thành công !");
+                MessageBox.Show("Thành Công");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Thất Bại");
             }
             this.Close();
         }

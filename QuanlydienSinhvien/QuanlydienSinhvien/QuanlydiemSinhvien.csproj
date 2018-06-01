@@ -246,6 +246,9 @@
     <EmbeddedResource Include="StudyResultsManagerment\FormAddStudyResults.resx">
       <DependentUpon>FormAddStudyResults.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudyResultsManagerment\FormEditStudyResults.resx">
+      <DependentUpon>FormEditStudyResults.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudyResultsManagerment\FormStudyResults.resx">
       <DependentUpon>FormStudyResults.cs</DependentUpon>
     </EmbeddedResource>

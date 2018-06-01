@@ -27,10 +27,11 @@ namespace QuanlydienSinhvien.SubjectManagerment
                 var db = new quanlydiemSinhVienEntities();
                 db.monhocs.Add(MonHoc);
                 db.SaveChanges();
+                MessageBox.Show("Thành Công");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Thất Bại");
             }
             this.Close();
         }

@@ -19,7 +19,20 @@ namespace QuanlydienSinhvien.StudentManagerment
 
         private void FormStudent_Load(object sender, EventArgs e)
         {
+            var db = new quanlydiemSinhVienEntities();
+            this.cboFillterByClass.DataSource = db.lophocs.ToList(); // load list class and assign to combobox
+            this.cboFillterByClass.ValueMember = "lophoc_id"; // set a value class
+            this.cboFillterByClass.DisplayMember = "tenlop"; // set the display class
             this.ShowStudentList();
+        }
+
+        private void FormStudentByClass_Load(int class_id)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            var listByClass = db.sinhviens.Where(b => b.lophoc_id == class_id).ToList();
+            lstStudent.DataSource = listByClass;
+            this.lstStudent.Columns["lophoc_id"].Visible = false;
+            this.lstStudent.Columns["lophoc"].Visible = false;
         }
 
         private void ShowStudentList()
@@ -52,10 +65,12 @@ namespace QuanlydienSinhvien.StudentManagerment
                         sinhvien SinhVien = db.sinhviens.Find(item.mssv);
                         db.sinhviens.Remove(SinhVien);
                         db.SaveChanges();
+                        MessageBox.Show("Thành Công");
+                        this.Close();
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Không thể xóa sinh viên");
+                        MessageBox.Show("Thất Bại");
                     }
                 }
                 this.ShowStudentList();
@@ -74,5 +89,18 @@ namespace QuanlydienSinhvien.StudentManagerment
                 this.ShowStudentList();
             }
         }
+
+        private void cboFillterByClass_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // get id from combobox
+            var temp = cboFillterByClass.SelectedValue;
+            int class_id = 0;
+            int.TryParse(temp.ToString(), out class_id);
+            if (class_id != 0)
+            {
+                FormStudentByClass_Load(class_id);
+            }
+        }
+
     }
 }

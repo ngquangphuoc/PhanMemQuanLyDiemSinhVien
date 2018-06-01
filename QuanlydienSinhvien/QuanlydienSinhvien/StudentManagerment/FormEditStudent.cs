@@ -19,15 +19,15 @@ namespace QuanlydienSinhvien.StudentManagerment
         }
 
         private sinhvien SinhVien;
-        private lophoc LopHoc;
+        //private lophoc LopHoc;
 
         private void FormEditStudent_Load(object sender, EventArgs e)
         {
             var db = new quanlydiemSinhVienEntities();
-            this.cboClass.DataSource = db.lophocs.ToList();
-            this.cboClass.ValueMember = "lophoc_id";
-            this.cboClass.DisplayMember = "tenlop";
+            this.cboClass.Text = SinhVien.lophoc_id.ToString();
+            this.cboClass.Enabled = false;
             this.txtMSSV.Text = SinhVien.mssv;
+            this.txtMSSV.Enabled = false;
             this.txtName.Text = SinhVien.hovaten;
             this.dtpBirthday.Text = SinhVien.ngaysinh.ToString();
             this.cboGender.Text = SinhVien.gioitinh;
@@ -41,8 +41,8 @@ namespace QuanlydienSinhvien.StudentManagerment
             {
                 var db = new quanlydiemSinhVienEntities();
                 var newStudent = db.sinhviens.Find(this.SinhVien.mssv);
-                int class_id = ((lophoc)this.cboClass.SelectedItem).lophoc_id;
-                newStudent.lophoc_id = class_id;
+                //int class_id = ((lophoc)this.cboClass.SelectedItem).lophoc_id;
+                //newStudent.lophoc_id = class_id;
                 newStudent.mssv = this.txtMSSV.Text;
                 newStudent.hovaten = this.txtName.Text;
                 DateTime parsedate = DateTime.Parse(this.dtpBirthday.Text);
@@ -52,17 +52,24 @@ namespace QuanlydienSinhvien.StudentManagerment
                 newStudent.email = this.txtMail.Text;
                 db.Entry(newStudent).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
+                MessageBox.Show("Thành Công");
                 this.Close();
             }
-            catch (Exception Ex)
+            catch (Exception)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Thất Bại");
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dtpBirthday_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime date = this.dtpBirthday.Value;
+            this.dtpBirthday.Text = date.ToString("yyyy-MM-dd");
         }
     }
 }

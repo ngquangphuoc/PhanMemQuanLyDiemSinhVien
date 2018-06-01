@@ -19,9 +19,8 @@ namespace QuanlydienSinhvien
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new ClassManagerment.FormClass());
             Application.Run(new SubjectManagerment.FormSubject());
-            //Application.Run(new StudyResultsManagerment.FormStudyResults());
             //Application.Run(new StudentManagerment.FormStudent());
-
+            //Application.Run(new StudyResultsManagerment.FormStudyResults());
         }
     }
 }

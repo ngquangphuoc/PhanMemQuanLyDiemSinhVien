@@ -44,6 +44,7 @@
             this.lstStudyResults.Name = "lstStudyResults";
             this.lstStudyResults.Size = new System.Drawing.Size(657, 296);
             this.lstStudyResults.TabIndex = 0;
+            this.lstStudyResults.DoubleClick += new System.EventHandler(this.lstStudyResults_DoubleClick);
             // 
             // menuStrip1
             // 
@@ -61,12 +62,14 @@
             this.btnAddStudyResults.Name = "btnAddStudyResults";
             this.btnAddStudyResults.Size = new System.Drawing.Size(136, 20);
             this.btnAddStudyResults.Text = "Thêm Kết quả học tập";
+            this.btnAddStudyResults.Click += new System.EventHandler(this.btnAddStudyResults_Click);
             // 
             // btnDeleteStudyResults
             // 
             this.btnDeleteStudyResults.Name = "btnDeleteStudyResults";
             this.btnDeleteStudyResults.Size = new System.Drawing.Size(125, 20);
             this.btnDeleteStudyResults.Text = "Xóa Kết quả học tập";
+            this.btnDeleteStudyResults.Click += new System.EventHandler(this.btnDeleteStudyResults_Click);
             // 
             // FormStudyResults
             // 

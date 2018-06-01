@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAddStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboFillterByClass = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstStudent)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -71,11 +72,22 @@
             this.btnDeleteStudent.Text = "Xóa Sinh viên";
             this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
+            // cboFillterByClass
+            // 
+            this.cboFillterByClass.FormattingEnabled = true;
+            this.cboFillterByClass.Location = new System.Drawing.Point(200, 0);
+            this.cboFillterByClass.Name = "cboFillterByClass";
+            this.cboFillterByClass.Size = new System.Drawing.Size(121, 21);
+            this.cboFillterByClass.TabIndex = 2;
+            this.cboFillterByClass.Text = " - Chọn Lớp học -";
+            this.cboFillterByClass.SelectedValueChanged += new System.EventHandler(this.cboFillterByClass_SelectedValueChanged);
+            // 
             // FormStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 310);
+            this.Controls.Add(this.cboFillterByClass);
             this.Controls.Add(this.lstStudent);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -96,5 +108,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnAddStudent;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteStudent;
+        private System.Windows.Forms.ComboBox cboFillterByClass;
     }
 }

@@ -101,6 +101,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormEditSubject";
             this.Text = "CẬP NHẬT MÔN HỌC";
+            this.Load += new System.EventHandler(this.FormEditSubject_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

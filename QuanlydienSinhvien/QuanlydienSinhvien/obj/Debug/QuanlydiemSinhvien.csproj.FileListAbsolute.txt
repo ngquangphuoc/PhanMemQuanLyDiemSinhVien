@@ -50,3 +50,4 @@ C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinh
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.SubjectManagerment.FormEditSubject.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudyResultsManagerment.FormAddStudyResults.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudyResultsManagerment.FormStudyResults.resources
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudyResultsManagerment.FormEditStudyResults.resources

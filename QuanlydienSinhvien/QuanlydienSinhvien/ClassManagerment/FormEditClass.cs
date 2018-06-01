@@ -35,12 +35,12 @@ namespace QuanlydienSinhvien.ClassManagerment
                 newClass.tenlop = this.txtName.Text;
                 db.Entry(newClass).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-                MessageBox.Show("Cập nhật thành công");
+                MessageBox.Show("Thành Công");
                 this.Close();
             }
-            catch (Exception Ex)
+            catch (Exception)
             {
-                MessageBox.Show(Ex.Message);
+                MessageBox.Show("Thất Bại");
             }
         }
 

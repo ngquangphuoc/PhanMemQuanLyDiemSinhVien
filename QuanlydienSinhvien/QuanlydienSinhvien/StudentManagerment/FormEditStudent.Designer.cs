@@ -111,6 +111,7 @@
             this.dtpBirthday.Name = "dtpBirthday";
             this.dtpBirthday.Size = new System.Drawing.Size(247, 20);
             this.dtpBirthday.TabIndex = 43;
+            this.dtpBirthday.ValueChanged += new System.EventHandler(this.dtpBirthday_ValueChanged);
             // 
             // label4
             // 
@@ -150,6 +151,7 @@
             this.btnUpdate.TabIndex = 39;
             this.btnUpdate.Text = "Cập nhật";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtName
             // 

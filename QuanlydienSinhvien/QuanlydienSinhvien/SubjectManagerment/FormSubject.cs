@@ -19,7 +19,18 @@ namespace QuanlydienSinhvien.SubjectManagerment
 
         private void FormSubject_Load(object sender, EventArgs e)
         {
+            var db = new quanlydiemSinhVienEntities();
+            this.cboSubjectBySemester.DataSource = db.hockies.ToList(); // load list semester and assign to combobox
+            this.cboSubjectBySemester.ValueMember = "hocki_id"; // set a value semester
+            this.cboSubjectBySemester.DisplayMember = "tenhocky"; // set the display semester
             this.ShowSubjectList();
+        }
+
+        private void FormSubjectBySemester_Load(int HocKi_Id)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            //var listSubjectBySemester = db.monhocs.Where(b => b.hocki_id == HocKi_Id).ToList();
+            //this.lstSubject.DataSource = listSubjectBySemester;
         }
 
         private void ShowSubjectList()
@@ -65,14 +76,27 @@ namespace QuanlydienSinhvien.SubjectManagerment
                         monhoc MonHoc = db.monhocs.Find(item.monhoc_id);
                         db.monhocs.Remove(MonHoc);
                         db.SaveChanges();
+                        MessageBox.Show("Thành Công");
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Không thể xóa Môn học này!");
+                        MessageBox.Show("Thất Bại");
                     }
                 }
             }
             this.ShowSubjectList();
+        }
+
+        private void cboSubjectBySemester_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // get id from combobox
+            var temp = cboSubjectBySemester.SelectedValue;
+            int HocKi_Id = 0;
+            int.TryParse(temp.ToString(), out HocKi_Id);
+            if (HocKi_Id != 0)
+            {
+                FormSubjectBySemester_Load(HocKi_Id);
+            }
         }
     }
 }

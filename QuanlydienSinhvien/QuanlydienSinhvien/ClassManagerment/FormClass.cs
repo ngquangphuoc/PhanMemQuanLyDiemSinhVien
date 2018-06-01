@@ -53,11 +53,11 @@ namespace QuanlydienSinhvien.ClassManagerment
                         lophoc lop = db.lophocs.Find(item.lophoc_id);
                         db.lophocs.Remove(lop);
                         db.SaveChanges();
-                        MessageBox.Show("Xóa Thành công");
+                        MessageBox.Show("Thành Công");
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Xóa Thất Bại");
+                        MessageBox.Show("Thất Bại");
                     }
                 }
             }

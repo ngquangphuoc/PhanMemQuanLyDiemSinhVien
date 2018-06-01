@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAddSubject = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteSubject = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboSubjectBySemester = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstSubject)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -42,7 +43,7 @@
             this.lstSubject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstSubject.Location = new System.Drawing.Point(0, 24);
             this.lstSubject.Name = "lstSubject";
-            this.lstSubject.Size = new System.Drawing.Size(284, 237);
+            this.lstSubject.Size = new System.Drawing.Size(530, 422);
             this.lstSubject.TabIndex = 0;
             this.lstSubject.DoubleClick += new System.EventHandler(this.lstSubject_DoubleClick);
             // 
@@ -53,7 +54,7 @@
             this.btnDeleteSubject});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(530, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -71,11 +72,21 @@
             this.btnDeleteSubject.Text = "Xóa Môn học";
             this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
             // 
+            // cboSubjectBySemester
+            // 
+            this.cboSubjectBySemester.FormattingEnabled = true;
+            this.cboSubjectBySemester.Location = new System.Drawing.Point(205, 0);
+            this.cboSubjectBySemester.Name = "cboSubjectBySemester";
+            this.cboSubjectBySemester.Size = new System.Drawing.Size(121, 21);
+            this.cboSubjectBySemester.TabIndex = 2;
+            this.cboSubjectBySemester.SelectedValueChanged += new System.EventHandler(this.cboSubjectBySemester_SelectedValueChanged);
+            // 
             // FormSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(530, 446);
+            this.Controls.Add(this.cboSubjectBySemester);
             this.Controls.Add(this.lstSubject);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -96,5 +107,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnAddSubject;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteSubject;
+        private System.Windows.Forms.ComboBox cboSubjectBySemester;
     }
 }

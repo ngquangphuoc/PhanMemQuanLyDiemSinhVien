@@ -26,11 +26,11 @@ namespace QuanlydienSinhvien.ClassManagerment
                 var db = new quanlydiemSinhVienEntities();
                 db.lophocs.Add(qllophoc);
                 db.SaveChanges();
-                MessageBox.Show("Thêm Thành Công");
+                MessageBox.Show("Thành Công");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Thất Bại");
             }
             this.Close();
         }

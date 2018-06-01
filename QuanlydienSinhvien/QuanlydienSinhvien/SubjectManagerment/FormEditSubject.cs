@@ -12,12 +12,19 @@ namespace QuanlydienSinhvien.SubjectManagerment
 {
     public partial class FormEditSubject : Form
     {
-        private monhoc MonHoc;
-
         public FormEditSubject(monhoc MonHoc)
         {
             InitializeComponent();
             this.MonHoc = MonHoc;
+        }
+
+        private monhoc MonHoc;
+
+        private void FormEditSubject_Load(object sender, EventArgs e)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            this.txtSubjectId.Text = MonHoc.maMH;
+            this.txtSubjectName.Text = MonHoc.tenMH;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -26,14 +33,16 @@ namespace QuanlydienSinhvien.SubjectManagerment
             {
                 var db = new quanlydiemSinhVienEntities();
                 var newSubject = db.monhocs.Find(this.MonHoc.monhoc_id);
+                newSubject.maMH = this.txtSubjectId.Text;
                 newSubject.tenMH = this.txtSubjectName.Text;
                 db.Entry(newSubject).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
+                MessageBox.Show("Thành Công");
                 this.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Thất Bại");
             }
         }
 
