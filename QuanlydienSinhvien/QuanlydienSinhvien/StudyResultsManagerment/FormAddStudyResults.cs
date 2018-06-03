@@ -31,8 +31,8 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
         private void btnSave_Click(object sender, EventArgs e)
         {
             ketquahoctap KQHT = new ketquahoctap();
-            int class_id = ((lophoc)this.cboClass.SelectedItem).lophoc_id;
-            KQHT.lophoc_id = class_id;
+            //int class_id = ((lophoc)this.cboClass.SelectedItem).lophoc_id;
+            //KQHT.lophoc_id = class_id;
             int monhoc_id = ((monhoc)this.cboSubject.SelectedItem).monhoc_id;
             KQHT.monhoc_id = monhoc_id;
             KQHT.mssv = this.txtMssv.Text;

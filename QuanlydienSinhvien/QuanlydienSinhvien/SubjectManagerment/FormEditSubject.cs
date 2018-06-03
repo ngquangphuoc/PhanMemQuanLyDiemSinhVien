@@ -23,7 +23,10 @@ namespace QuanlydienSinhvien.SubjectManagerment
         private void FormEditSubject_Load(object sender, EventArgs e)
         {
             var db = new quanlydiemSinhVienEntities();
+            this.cboSemester.Text = MonHoc.hocki_id.ToString();
+            this.cboSemester.Enabled = false;
             this.txtSubjectId.Text = MonHoc.maMH;
+            this.txtSubjectId.Enabled = false;
             this.txtSubjectName.Text = MonHoc.tenMH;
         }
 

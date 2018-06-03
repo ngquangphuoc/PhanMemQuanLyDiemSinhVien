@@ -28,8 +28,8 @@ namespace QuanlydienSinhvien.ClassManagerment
             var db = new quanlydiemSinhVienEntities();
             var list = db.lophocs.ToList();
             this.lstClass.DataSource = list;
-            this.lstClass.Columns["ketquahoctaps"].Visible = false;
             this.lstClass.Columns["sinhviens"].Visible = false;
+            //this.lstClass.Columns["ketquahoctaps"].Visible = false;
         }
 
         private void btnAddClass_Click(object sender, EventArgs e)

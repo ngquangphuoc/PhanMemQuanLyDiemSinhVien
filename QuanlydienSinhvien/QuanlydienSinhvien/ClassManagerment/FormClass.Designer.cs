@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnAddClass = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteClass = new System.Windows.Forms.ToolStripMenuItem();
+            this.clClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lstClass)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -39,6 +40,8 @@
             // lstClass
             // 
             this.lstClass.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.lstClass.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clClassName});
             this.lstClass.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstClass.Location = new System.Drawing.Point(0, 24);
             this.lstClass.Name = "lstClass";
@@ -71,6 +74,13 @@
             this.btnDeleteClass.Text = "Xóa Lớp học";
             this.btnDeleteClass.Click += new System.EventHandler(this.btnDeleteClass_Click);
             // 
+            // clClassName
+            // 
+            this.clClassName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clClassName.DataPropertyName = "tenlop";
+            this.clClassName.HeaderText = "Tên Lớp học";
+            this.clClassName.Name = "clClassName";
+            // 
             // FormClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -96,5 +106,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnAddClass;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteClass;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clClassName;
     }
 }

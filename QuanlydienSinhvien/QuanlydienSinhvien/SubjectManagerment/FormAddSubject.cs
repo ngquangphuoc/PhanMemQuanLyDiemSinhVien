@@ -17,9 +17,19 @@ namespace QuanlydienSinhvien.SubjectManagerment
             InitializeComponent();
         }
 
+        private void FormAddSubject_Load(object sender, EventArgs e)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            this.cboSemester.DataSource = db.hockies.ToList();
+            this.cboSemester.ValueMember = "hocki_id";
+            this.cboSemester.DisplayMember = "tenhocky";
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             monhoc MonHoc = new monhoc();
+            int semester_id = ((hocky)this.cboSemester.SelectedItem).hocki_id;
+            MonHoc.hocki_id = semester_id;
             MonHoc.maMH = this.txtSubjectId.Text;
             MonHoc.tenMH = this.txtSubjectName.Text;
             try

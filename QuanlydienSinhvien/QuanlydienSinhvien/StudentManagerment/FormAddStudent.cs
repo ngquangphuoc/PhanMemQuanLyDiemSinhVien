@@ -28,6 +28,8 @@ namespace QuanlydienSinhvien.StudentManagerment
         private void btnSave_Click(object sender, EventArgs e)
         {
             sinhvien student = new sinhvien();
+            int class_id = ((lophoc)this.cboClass.SelectedItem).lophoc_id;
+            student.lophoc_id = class_id;
             student.mssv = this.txtMSSV.Text;
             student.hovaten = this.txtName.Text;
             student.gioitinh = this.cboGender.Text;
@@ -35,9 +37,6 @@ namespace QuanlydienSinhvien.StudentManagerment
             student.email = this.txtMail.Text;
             DateTime parsedDate = DateTime.Parse(this.dtpBirthday.Text);
             student.ngaysinh = parsedDate;
-            int class_id = ((lophoc)this.cboClass.SelectedItem).lophoc_id;
-            student.lophoc_id = class_id;
-
             try
             {
                 var db = new quanlydiemSinhVienEntities();

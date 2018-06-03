@@ -19,7 +19,31 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
 
         private void FormStudyResults_Load(object sender, EventArgs e)
         {
-            this.ShowStudyResults();
+            var db = new quanlydiemSinhVienEntities();
+            this.cboSubjectBySemester.DataSource = db.hockies.ToList(); // load list subject and assign to combobox
+            this.cboSubjectBySemester.ValueMember = "hocki_id"; // set a value subject
+            this.cboSubjectBySemester.DisplayMember = "tenhocky"; // set the display subject
+            this.cboStudyResultBySubject.Enabled = false;
+        }
+
+        private void FormStudyResultBySubject_Load(int studyResult_id)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            var list = db.ketquahoctaps.Where(b => b.monhoc_id == studyResult_id).ToList();
+            this.lstStudyResults.DataSource = list;
+            this.lstStudyResults.Columns["kqht_id"].Visible = false;
+            this.lstStudyResults.Columns["monhoc"].Visible = false;
+            this.lstStudyResults.Columns["monhoc_id"].Visible = false;
+        }
+
+        private void cboSubjectBySemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            this.cboStudyResultBySubject.Enabled = true;
+            int semester_id = ((hocky)this.cboSubjectBySemester.SelectedItem).hocki_id;
+            this.cboStudyResultBySubject.DataSource = db.monhocs.Where(b => b.hocki_id == semester_id).ToList(); // load list subject and assign to combobox
+            this.cboStudyResultBySubject.ValueMember = "monhoc_id"; // set a value subject
+            this.cboStudyResultBySubject.DisplayMember = "tenMH"; // set the display subject
         }
 
         private void ShowStudyResults()
@@ -28,11 +52,9 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
             var list = db.ketquahoctaps.ToList();
             this.lstStudyResults.DataSource = list;
             this.lstStudyResults.Columns["kqht_id"].Visible = false;
-            this.lstStudyResults.Columns["lophoc_id"].Visible = false;
+            this.lstStudyResults.Columns["monhoc"].Visible = false;
             this.lstStudyResults.Columns["monhoc_id"].Visible = false;
-            this.lstStudyResults.Columns["hocki_id"].Visible = false;
-            this.lstStudyResults.Columns["hocky"].Visible = false;
-            this.lstStudyResults.Columns["lophoc"].Visible = false;
+            //this.lstStudyResults.Columns["lophoc_id"].Visible = false;
         }
 
         private void btnAddStudyResults_Click(object sender, EventArgs e)
@@ -78,6 +100,23 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
                 }
             }
             this.ShowStudyResults();
+        }
+
+        private void btnRefesh_Click(object sender, EventArgs e)
+        {
+            this.ShowStudyResults();
+        }
+
+        private void cboStudyResultBySubject_SelectedValueChanged(object sender, EventArgs e)
+        {
+            // get id from combobox
+            var temp = cboStudyResultBySubject.SelectedValue;
+            int studyResult_id = 0;
+            int.TryParse(temp.ToString(), out studyResult_id);
+            if (studyResult_id != 0)
+            {
+                FormStudyResultBySubject_Load(studyResult_id);
+            }
         }
     }
 }

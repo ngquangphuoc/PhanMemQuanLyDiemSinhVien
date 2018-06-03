@@ -21,8 +21,6 @@ public partial class lophoc
     public lophoc()
     {
 
-        this.ketquahoctaps = new HashSet<ketquahoctap>();
-
         this.sinhviens = new HashSet<sinhvien>();
 
     }
@@ -33,8 +31,6 @@ public partial class lophoc
     public string tenlop { get; set; }
 
 
-
-    public virtual ICollection<ketquahoctap> ketquahoctaps { get; set; }
 
     public virtual ICollection<sinhvien> sinhviens { get; set; }
 

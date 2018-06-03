@@ -22,8 +22,6 @@ public partial class ketquahoctap
 
     public string mssv { get; set; }
 
-    public Nullable<int> lophoc_id { get; set; }
-
     public Nullable<int> monhoc_id { get; set; }
 
     public Nullable<int> chuyencan { get; set; }
@@ -34,13 +32,7 @@ public partial class ketquahoctap
 
     public Nullable<double> DTB { get; set; }
 
-    public Nullable<int> hocki_id { get; set; }
 
-
-
-    public virtual hocky hocky { get; set; }
-
-    public virtual lophoc lophoc { get; set; }
 
     public virtual monhoc monhoc { get; set; }
 

@@ -21,7 +21,7 @@ public partial class hocky
     public hocky()
     {
 
-        this.ketquahoctaps = new HashSet<ketquahoctap>();
+        this.monhocs = new HashSet<monhoc>();
 
     }
 
@@ -32,7 +32,7 @@ public partial class hocky
 
 
 
-    public virtual ICollection<ketquahoctap> ketquahoctaps { get; set; }
+    public virtual ICollection<monhoc> monhocs { get; set; }
 
 }
 

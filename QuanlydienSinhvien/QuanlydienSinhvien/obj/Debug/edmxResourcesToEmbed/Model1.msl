@@ -12,13 +12,11 @@
     <EntitySetMapping Name="ketquahoctaps">
       <EntityTypeMapping TypeName="quanlydiemSinhVienModel.ketquahoctap">
         <MappingFragment StoreEntitySet="ketquahoctap">
-          <ScalarProperty Name="hocki_id" ColumnName="hocki_id" />
           <ScalarProperty Name="DTB" ColumnName="DTB" />
           <ScalarProperty Name="cuoiki" ColumnName="cuoiki" />
           <ScalarProperty Name="giuaki" ColumnName="giuaki" />
           <ScalarProperty Name="chuyencan" ColumnName="chuyencan" />
           <ScalarProperty Name="monhoc_id" ColumnName="monhoc_id" />
-          <ScalarProperty Name="lophoc_id" ColumnName="lophoc_id" />
           <ScalarProperty Name="mssv" ColumnName="mssv" />
           <ScalarProperty Name="kqht_id" ColumnName="kqht_id" />
         </MappingFragment>
@@ -35,6 +33,7 @@
     <EntitySetMapping Name="monhocs">
       <EntityTypeMapping TypeName="quanlydiemSinhVienModel.monhoc">
         <MappingFragment StoreEntitySet="monhoc">
+          <ScalarProperty Name="hocki_id" ColumnName="hocki_id" />
           <ScalarProperty Name="tenMH" ColumnName="tenMH" />
           <ScalarProperty Name="maMH" ColumnName="maMH" />
           <ScalarProperty Name="monhoc_id" ColumnName="monhoc_id" />

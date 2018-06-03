@@ -7,13 +7,9 @@
     <EntitySet Name="monhocs" EntityType="quanlydiemSinhVienModel.monhoc" />
     <EntitySet Name="sinhviens" EntityType="quanlydiemSinhVienModel.sinhvien" />
     <EntitySet Name="sysdiagrams" EntityType="quanlydiemSinhVienModel.sysdiagram" />
-    <AssociationSet Name="FK_ketquahoctap_hocky" Association="quanlydiemSinhVienModel.FK_ketquahoctap_hocky">
+    <AssociationSet Name="FK_monhoc_hocky" Association="quanlydiemSinhVienModel.FK_monhoc_hocky">
       <End Role="hocky" EntitySet="hockies" />
-      <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ketquahoctap_lophoc" Association="quanlydiemSinhVienModel.FK_ketquahoctap_lophoc">
-      <End Role="lophoc" EntitySet="lophocs" />
-      <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+      <End Role="monhoc" EntitySet="monhocs" />
     </AssociationSet>
     <AssociationSet Name="FK_ketquahoctap_monhoc" Association="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc">
       <End Role="monhoc" EntitySet="monhocs" />
@@ -30,7 +26,7 @@
     </Key>
     <Property Name="hocki_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenhocky" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_hocky" FromRole="hocky" ToRole="ketquahoctap" />
+    <NavigationProperty Name="monhocs" Relationship="quanlydiemSinhVienModel.FK_monhoc_hocky" FromRole="hocky" ToRole="monhoc" />
   </EntityType>
   <EntityType Name="ketquahoctap">
     <Key>
@@ -38,15 +34,11 @@
     </Key>
     <Property Name="kqht_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="mssv" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-    <Property Name="lophoc_id" Type="Int32" />
     <Property Name="monhoc_id" Type="Int32" />
     <Property Name="chuyencan" Type="Int32" />
     <Property Name="giuaki" Type="Int32" />
     <Property Name="cuoiki" Type="Int32" />
     <Property Name="DTB" Type="Double" />
-    <Property Name="hocki_id" Type="Int32" />
-    <NavigationProperty Name="hocky" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_hocky" FromRole="ketquahoctap" ToRole="hocky" />
-    <NavigationProperty Name="lophoc" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_lophoc" FromRole="ketquahoctap" ToRole="lophoc" />
     <NavigationProperty Name="monhoc" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc" FromRole="ketquahoctap" ToRole="monhoc" />
   </EntityType>
   <EntityType Name="lophoc">
@@ -55,7 +47,6 @@
     </Key>
     <Property Name="lophoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="tenlop" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_lophoc" FromRole="lophoc" ToRole="ketquahoctap" />
     <NavigationProperty Name="sinhviens" Relationship="quanlydiemSinhVienModel.FK_sinhvien_lophoc" FromRole="lophoc" ToRole="sinhvien" />
   </EntityType>
   <EntityType Name="monhoc">
@@ -64,7 +55,9 @@
     </Key>
     <Property Name="monhoc_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="maMH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-    <Property Name="tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="tenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="hocki_id" Type="Int32" />
+    <NavigationProperty Name="hocky" Relationship="quanlydiemSinhVienModel.FK_monhoc_hocky" FromRole="monhoc" ToRole="hocky" />
     <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc" FromRole="monhoc" ToRole="ketquahoctap" />
   </EntityType>
   <EntityType Name="sinhvien">
@@ -72,8 +65,8 @@
       <PropertyRef Name="mssv" />
     </Key>
     <Property Name="mssv" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
-    <Property Name="hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="hovaten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gioitinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="sdt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="lophoc_id" Type="Int32" />
@@ -90,31 +83,17 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <Association Name="FK_ketquahoctap_hocky">
+  <Association Name="FK_monhoc_hocky">
     <End Type="quanlydiemSinhVienModel.hocky" Role="hocky" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
     </End>
-    <End Type="quanlydiemSinhVienModel.ketquahoctap" Role="ketquahoctap" Multiplicity="*" />
+    <End Type="quanlydiemSinhVienModel.monhoc" Role="monhoc" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hocky">
         <PropertyRef Name="hocki_id" />
       </Principal>
-      <Dependent Role="ketquahoctap">
+      <Dependent Role="monhoc">
         <PropertyRef Name="hocki_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ketquahoctap_lophoc">
-    <End Type="quanlydiemSinhVienModel.lophoc" Role="lophoc" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="quanlydiemSinhVienModel.ketquahoctap" Role="ketquahoctap" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="lophoc">
-        <PropertyRef Name="lophoc_id" />
-      </Principal>
-      <Dependent Role="ketquahoctap">
-        <PropertyRef Name="lophoc_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

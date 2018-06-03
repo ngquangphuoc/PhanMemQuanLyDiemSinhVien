@@ -13,13 +13,11 @@
     </Key>
     <Property Name="kqht_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="mssv" Type="char" MaxLength="10" />
-    <Property Name="lophoc_id" Type="int" />
     <Property Name="monhoc_id" Type="int" />
     <Property Name="chuyencan" Type="int" />
     <Property Name="giuaki" Type="int" />
     <Property Name="cuoiki" Type="int" />
     <Property Name="DTB" Type="float" />
-    <Property Name="hocki_id" Type="int" />
   </EntityType>
   <EntityType Name="lophoc">
     <Key>
@@ -34,15 +32,16 @@
     </Key>
     <Property Name="monhoc_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="maMH" Type="char" MaxLength="10" />
-    <Property Name="tenMH" Type="varchar" MaxLength="50" />
+    <Property Name="tenMH" Type="nvarchar" MaxLength="50" />
+    <Property Name="hocki_id" Type="int" />
   </EntityType>
   <EntityType Name="sinhvien">
     <Key>
       <PropertyRef Name="mssv" />
     </Key>
     <Property Name="mssv" Type="char" MaxLength="10" Nullable="false" />
-    <Property Name="hovaten" Type="varchar" MaxLength="50" />
-    <Property Name="gioitinh" Type="varchar" MaxLength="50" />
+    <Property Name="hovaten" Type="nvarchar" MaxLength="50" />
+    <Property Name="gioitinh" Type="nvarchar" MaxLength="50" />
     <Property Name="sdt" Type="varchar" MaxLength="50" />
     <Property Name="email" Type="varchar" MaxLength="50" />
     <Property Name="lophoc_id" Type="int" />
@@ -58,34 +57,6 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK_ketquahoctap_hocky">
-    <End Role="hocky" Type="Self.hocky" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="hocky">
-        <PropertyRef Name="hocki_id" />
-      </Principal>
-      <Dependent Role="ketquahoctap">
-        <PropertyRef Name="hocki_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ketquahoctap_lophoc">
-    <End Role="lophoc" Type="Self.lophoc" Multiplicity="0..1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="lophoc">
-        <PropertyRef Name="lophoc_id" />
-      </Principal>
-      <Dependent Role="ketquahoctap">
-        <PropertyRef Name="lophoc_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ketquahoctap_monhoc">
     <End Role="monhoc" Type="Self.monhoc" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -97,6 +68,20 @@
       </Principal>
       <Dependent Role="ketquahoctap">
         <PropertyRef Name="monhoc_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_monhoc_hocky">
+    <End Role="hocky" Type="Self.hocky" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="monhoc" Type="Self.monhoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="hocky">
+        <PropertyRef Name="hocki_id" />
+      </Principal>
+      <Dependent Role="monhoc">
+        <PropertyRef Name="hocki_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -121,17 +106,13 @@
     <EntitySet Name="monhoc" EntityType="Self.monhoc" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sinhvien" EntityType="Self.sinhvien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_ketquahoctap_hocky" Association="Self.FK_ketquahoctap_hocky">
-      <End Role="hocky" EntitySet="hocky" />
-      <End Role="ketquahoctap" EntitySet="ketquahoctap" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ketquahoctap_lophoc" Association="Self.FK_ketquahoctap_lophoc">
-      <End Role="lophoc" EntitySet="lophoc" />
-      <End Role="ketquahoctap" EntitySet="ketquahoctap" />
-    </AssociationSet>
     <AssociationSet Name="FK_ketquahoctap_monhoc" Association="Self.FK_ketquahoctap_monhoc">
       <End Role="monhoc" EntitySet="monhoc" />
       <End Role="ketquahoctap" EntitySet="ketquahoctap" />
+    </AssociationSet>
+    <AssociationSet Name="FK_monhoc_hocky" Association="Self.FK_monhoc_hocky">
+      <End Role="hocky" EntitySet="hocky" />
+      <End Role="monhoc" EntitySet="monhoc" />
     </AssociationSet>
     <AssociationSet Name="FK_sinhvien_lophoc" Association="Self.FK_sinhvien_lophoc">
       <End Role="lophoc" EntitySet="lophoc" />

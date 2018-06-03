@@ -23,14 +23,17 @@ namespace QuanlydienSinhvien.SubjectManagerment
             this.cboSubjectBySemester.DataSource = db.hockies.ToList(); // load list semester and assign to combobox
             this.cboSubjectBySemester.ValueMember = "hocki_id"; // set a value semester
             this.cboSubjectBySemester.DisplayMember = "tenhocky"; // set the display semester
-            this.ShowSubjectList();
         }
 
         private void FormSubjectBySemester_Load(int HocKi_Id)
         {
             var db = new quanlydiemSinhVienEntities();
-            //var listSubjectBySemester = db.monhocs.Where(b => b.hocki_id == HocKi_Id).ToList();
-            //this.lstSubject.DataSource = listSubjectBySemester;
+            var listSubjectBySemester = db.monhocs.Where(b => b.hocki_id == HocKi_Id).ToList();
+            this.lstSubject.DataSource = listSubjectBySemester;
+            this.lstSubject.Columns["monhoc_id"].Visible = false;
+            this.lstSubject.Columns["hocki_id"].Visible = false;
+            this.lstSubject.Columns["ketquahoctaps"].Visible = false;
+            this.lstSubject.Columns["hocky"].Visible = false;
         }
 
         private void ShowSubjectList()
@@ -39,7 +42,9 @@ namespace QuanlydienSinhvien.SubjectManagerment
             var list = db.monhocs.ToList();
             this.lstSubject.DataSource = list;
             this.lstSubject.Columns["monhoc_id"].Visible = false;
+            this.lstSubject.Columns["hocki_id"].Visible = false;
             this.lstSubject.Columns["ketquahoctaps"].Visible = false;
+            this.lstSubject.Columns["hocky"].Visible = false;
         }
 
         private void btnAddSubject_Click(object sender, EventArgs e)
@@ -97,6 +102,11 @@ namespace QuanlydienSinhvien.SubjectManagerment
             {
                 FormSubjectBySemester_Load(HocKi_Id);
             }
+        }
+
+        private void btnRefesh_Click(object sender, EventArgs e)
+        {
+            this.ShowSubjectList();
         }
     }
 }

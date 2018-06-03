@@ -32,7 +32,11 @@ public partial class monhoc
 
     public string tenMH { get; set; }
 
+    public Nullable<int> hocki_id { get; set; }
 
+
+
+    public virtual hocky hocky { get; set; }
 
     public virtual ICollection<ketquahoctap> ketquahoctaps { get; set; }
 

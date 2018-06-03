@@ -23,7 +23,6 @@ namespace QuanlydienSinhvien.StudentManagerment
             this.cboFillterByClass.DataSource = db.lophocs.ToList(); // load list class and assign to combobox
             this.cboFillterByClass.ValueMember = "lophoc_id"; // set a value class
             this.cboFillterByClass.DisplayMember = "tenlop"; // set the display class
-            this.ShowStudentList();
         }
 
         private void FormStudentByClass_Load(int class_id)
@@ -100,6 +99,11 @@ namespace QuanlydienSinhvien.StudentManagerment
             {
                 FormStudentByClass_Load(class_id);
             }
+        }
+
+        private void xemTấtCảToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ShowStudentList();
         }
 
     }
