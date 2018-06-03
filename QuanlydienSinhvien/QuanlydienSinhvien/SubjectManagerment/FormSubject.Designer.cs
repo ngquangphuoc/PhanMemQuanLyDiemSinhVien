@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.lstSubject = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.clSubjectCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clSubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuSubject = new System.Windows.Forms.MenuStrip();
             this.btnAddSubject = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteSubject = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRefesh = new System.Windows.Forms.ToolStripMenuItem();
             this.cboSubjectBySemester = new System.Windows.Forms.ComboBox();
-            this.clSubjectCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clSubjectName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lstSubject)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuSubject.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstSubject
@@ -53,48 +53,6 @@
             this.lstSubject.TabIndex = 0;
             this.lstSubject.DoubleClick += new System.EventHandler(this.lstSubject_DoubleClick);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddSubject,
-            this.btnDeleteSubject,
-            this.btnRefesh});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(651, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // btnAddSubject
-            // 
-            this.btnAddSubject.Name = "btnAddSubject";
-            this.btnAddSubject.Size = new System.Drawing.Size(101, 20);
-            this.btnAddSubject.Text = "Thêm Môn học";
-            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
-            // 
-            // btnDeleteSubject
-            // 
-            this.btnDeleteSubject.Name = "btnDeleteSubject";
-            this.btnDeleteSubject.Size = new System.Drawing.Size(90, 20);
-            this.btnDeleteSubject.Text = "Xóa Môn học";
-            this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Size = new System.Drawing.Size(78, 20);
-            this.btnRefesh.Text = "Xem Tất cả";
-            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
-            // 
-            // cboSubjectBySemester
-            // 
-            this.cboSubjectBySemester.FormattingEnabled = true;
-            this.cboSubjectBySemester.Location = new System.Drawing.Point(282, 0);
-            this.cboSubjectBySemester.Name = "cboSubjectBySemester";
-            this.cboSubjectBySemester.Size = new System.Drawing.Size(85, 21);
-            this.cboSubjectBySemester.TabIndex = 2;
-            this.cboSubjectBySemester.SelectedValueChanged += new System.EventHandler(this.cboSubjectBySemester_SelectedValueChanged);
-            // 
             // clSubjectCode
             // 
             this.clSubjectCode.DataPropertyName = "maMH";
@@ -109,6 +67,54 @@
             this.clSubjectName.HeaderText = "Tên Môn học";
             this.clSubjectName.Name = "clSubjectName";
             // 
+            // menuSubject
+            // 
+            this.menuSubject.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddSubject,
+            this.btnDeleteSubject,
+            this.btnRefesh});
+            this.menuSubject.Location = new System.Drawing.Point(0, 0);
+            this.menuSubject.Name = "menuSubject";
+            this.menuSubject.Size = new System.Drawing.Size(651, 24);
+            this.menuSubject.TabIndex = 1;
+            this.menuSubject.Text = "menuStrip1";
+            // 
+            // btnAddSubject
+            // 
+            this.btnAddSubject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddSubject.ForeColor = System.Drawing.Color.Brown;
+            this.btnAddSubject.Name = "btnAddSubject";
+            this.btnAddSubject.Size = new System.Drawing.Size(102, 20);
+            this.btnAddSubject.Text = "Thêm Môn học";
+            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
+            // 
+            // btnDeleteSubject
+            // 
+            this.btnDeleteSubject.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteSubject.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteSubject.Name = "btnDeleteSubject";
+            this.btnDeleteSubject.Size = new System.Drawing.Size(91, 20);
+            this.btnDeleteSubject.Text = "Xóa Môn học";
+            this.btnDeleteSubject.Click += new System.EventHandler(this.btnDeleteSubject_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefesh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(81, 20);
+            this.btnRefesh.Text = "Xem Tất cả";
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
+            // 
+            // cboSubjectBySemester
+            // 
+            this.cboSubjectBySemester.FormattingEnabled = true;
+            this.cboSubjectBySemester.Location = new System.Drawing.Point(282, 0);
+            this.cboSubjectBySemester.Name = "cboSubjectBySemester";
+            this.cboSubjectBySemester.Size = new System.Drawing.Size(85, 21);
+            this.cboSubjectBySemester.TabIndex = 2;
+            this.cboSubjectBySemester.SelectedValueChanged += new System.EventHandler(this.cboSubjectBySemester_SelectedValueChanged);
+            // 
             // FormSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,14 +122,15 @@
             this.ClientSize = new System.Drawing.Size(651, 370);
             this.Controls.Add(this.cboSubjectBySemester);
             this.Controls.Add(this.lstSubject);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuSubject);
+            this.MainMenuStrip = this.menuSubject;
             this.Name = "FormSubject";
             this.Text = "DANH SÁCH MÔN HỌC";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormSubject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstSubject)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuSubject.ResumeLayout(false);
+            this.menuSubject.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +139,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView lstSubject;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuSubject;
         private System.Windows.Forms.ToolStripMenuItem btnAddSubject;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteSubject;
         private System.Windows.Forms.ComboBox cboSubjectBySemester;

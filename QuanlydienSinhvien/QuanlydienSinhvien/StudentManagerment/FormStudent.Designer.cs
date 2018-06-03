@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.lstStudent = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStudentManagerment = new System.Windows.Forms.MenuStrip();
             this.btnAddStudent = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteStudent = new System.Windows.Forms.ToolStripMenuItem();
-            this.xemTấtCảToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRefesh = new System.Windows.Forms.ToolStripMenuItem();
             this.cboFillterByClass = new System.Windows.Forms.ComboBox();
             this.clStudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +41,7 @@
             this.clPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.lstStudent)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.menuStudentManagerment.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstStudent
@@ -61,38 +61,44 @@
             this.lstStudent.TabIndex = 0;
             this.lstStudent.DoubleClick += new System.EventHandler(this.lstStudent_DoubleClick);
             // 
-            // menuStrip1
+            // menuStudentManagerment
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStudentManagerment.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddStudent,
             this.btnDeleteStudent,
-            this.xemTấtCảToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(772, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
+            this.btnRefesh});
+            this.menuStudentManagerment.Location = new System.Drawing.Point(0, 0);
+            this.menuStudentManagerment.Name = "menuStudentManagerment";
+            this.menuStudentManagerment.Size = new System.Drawing.Size(772, 24);
+            this.menuStudentManagerment.TabIndex = 1;
+            this.menuStudentManagerment.Text = "menuStrip1";
             // 
             // btnAddStudent
             // 
+            this.btnAddStudent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(101, 20);
+            this.btnAddStudent.Size = new System.Drawing.Size(105, 20);
             this.btnAddStudent.Text = "Thêm Sinh viên";
             this.btnAddStudent.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // btnDeleteStudent
             // 
+            this.btnDeleteStudent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteStudent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(90, 20);
+            this.btnDeleteStudent.Size = new System.Drawing.Size(94, 20);
             this.btnDeleteStudent.Text = "Xóa Sinh viên";
             this.btnDeleteStudent.Click += new System.EventHandler(this.btnDeleteStudent_Click);
             // 
-            // xemTấtCảToolStripMenuItem
+            // btnRefesh
             // 
-            this.xemTấtCảToolStripMenuItem.Name = "xemTấtCảToolStripMenuItem";
-            this.xemTấtCảToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.xemTấtCảToolStripMenuItem.Text = "Xem Tất cả";
-            this.xemTấtCảToolStripMenuItem.Click += new System.EventHandler(this.xemTấtCảToolStripMenuItem_Click);
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefesh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(81, 20);
+            this.btnRefesh.Text = "Xem Tất cả";
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
             // 
             // cboFillterByClass
             // 
@@ -108,7 +114,6 @@
             this.clStudentID.DataPropertyName = "mssv";
             this.clStudentID.HeaderText = "MSSV";
             this.clStudentID.Name = "clStudentID";
-            this.clStudentID.Width = 60;
             // 
             // clFullName
             // 
@@ -151,14 +156,15 @@
             this.ClientSize = new System.Drawing.Size(772, 310);
             this.Controls.Add(this.cboFillterByClass);
             this.Controls.Add(this.lstStudent);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.menuStudentManagerment);
+            this.MainMenuStrip = this.menuStudentManagerment;
             this.Name = "FormStudent";
             this.Text = "DANH SÁCH SINH VIÊN";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstStudent)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStudentManagerment.ResumeLayout(false);
+            this.menuStudentManagerment.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,11 +173,11 @@
         #endregion
 
         private System.Windows.Forms.DataGridView lstStudent;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStudentManagerment;
         private System.Windows.Forms.ToolStripMenuItem btnAddStudent;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteStudent;
         private System.Windows.Forms.ComboBox cboFillterByClass;
-        private System.Windows.Forms.ToolStripMenuItem xemTấtCảToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnRefesh;
         private System.Windows.Forms.DataGridViewTextBoxColumn clStudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clFullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clBirthday;

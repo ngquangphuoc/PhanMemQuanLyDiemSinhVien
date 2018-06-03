@@ -30,11 +30,6 @@ C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinh
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.xml
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.frmKQHT.resources
-C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.frmLopHoc.resources
-C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.frmMain.resources
-C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.frmMonHoc.resources
-C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.frmSinhVien.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.frmThongKe.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.ClassManagerment.FormAddClass.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.ClassManagerment.FormClass.resources
@@ -51,3 +46,4 @@ C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinh
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudyResultsManagerment.FormAddStudyResults.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudyResultsManagerment.FormStudyResults.resources
 C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.StudyResultsManagerment.FormEditStudyResults.resources
+C:\Users\Quang Phuoc\Documents\Visual Studio 2013\Projects\PhanMemQuanLyDiemSinhVien.git\trunk\QuanlydienSinhvien\QuanlydienSinhvien\obj\Debug\QuanlydienSinhvien.App_Form.FormMain.resources

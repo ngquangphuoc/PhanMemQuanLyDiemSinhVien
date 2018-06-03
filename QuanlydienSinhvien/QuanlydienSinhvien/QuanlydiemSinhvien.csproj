@@ -53,40 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Form\frmKQHT.cs">
+    <Compile Include="frmThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="App_Form\frmKQHT.Designer.cs">
-      <DependentUpon>frmKQHT.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App_Form\frmLopHoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="App_Form\frmLopHoc.Designer.cs">
-      <DependentUpon>frmLopHoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App_Form\frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="App_Form\frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App_Form\frmMonHoc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="App_Form\frmMonHoc.Designer.cs">
-      <DependentUpon>frmMonHoc.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App_Form\frmSinhVien.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="App_Form\frmSinhVien.Designer.cs">
-      <DependentUpon>frmSinhVien.cs</DependentUpon>
-    </Compile>
-    <Compile Include="App_Form\frmThongKe.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="App_Form\frmThongKe.Designer.cs">
+    <Compile Include="frmThongKe.Designer.cs">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="ClassManagerment\FormAddClass.cs">
@@ -106,6 +76,12 @@
     </Compile>
     <Compile Include="ClassManagerment\FormEditClass.Designer.cs">
       <DependentUpon>FormEditClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="hocky.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -198,22 +174,7 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="App_Form\frmKQHT.resx">
-      <DependentUpon>frmKQHT.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Form\frmLopHoc.resx">
-      <DependentUpon>frmLopHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Form\frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Form\frmMonHoc.resx">
-      <DependentUpon>frmMonHoc.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Form\frmSinhVien.resx">
-      <DependentUpon>frmSinhVien.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Form\frmThongKe.resx">
+    <EmbeddedResource Include="frmThongKe.resx">
       <DependentUpon>frmThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ClassManagerment\FormAddClass.resx">
@@ -224,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ClassManagerment\FormEditClass.resx">
       <DependentUpon>FormEditClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

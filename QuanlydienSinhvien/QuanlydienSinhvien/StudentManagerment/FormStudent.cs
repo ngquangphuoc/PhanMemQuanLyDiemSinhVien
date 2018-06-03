@@ -101,7 +101,7 @@ namespace QuanlydienSinhvien.StudentManagerment
             }
         }
 
-        private void xemTấtCảToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnRefesh_Click(object sender, EventArgs e)
         {
             this.ShowStudentList();
         }

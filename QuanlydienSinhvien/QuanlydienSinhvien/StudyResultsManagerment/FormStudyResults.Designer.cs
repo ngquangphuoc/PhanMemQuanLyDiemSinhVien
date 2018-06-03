@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             this.lstStudyResults = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnAddStudyResults = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDeleteStudyResults = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRefesh = new System.Windows.Forms.ToolStripMenuItem();
-            this.cboStudyResultBySubject = new System.Windows.Forms.ComboBox();
-            this.cboSubjectBySemester = new System.Windows.Forms.ComboBox();
             this.clMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clHoVaTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +36,12 @@
             this.clGiuaky = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clCuoiKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDiemTrungBinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnAddStudyResults = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDeleteStudyResults = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRefesh = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboStudyResultBySubject = new System.Windows.Forms.ComboBox();
+            this.cboSubjectBySemester = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstStudyResults)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,57 +63,6 @@
             this.lstStudyResults.Size = new System.Drawing.Size(817, 296);
             this.lstStudyResults.TabIndex = 0;
             this.lstStudyResults.DoubleClick += new System.EventHandler(this.lstStudyResults_DoubleClick);
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddStudyResults,
-            this.btnDeleteStudyResults,
-            this.btnRefesh});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(817, 24);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // btnAddStudyResults
-            // 
-            this.btnAddStudyResults.Name = "btnAddStudyResults";
-            this.btnAddStudyResults.Size = new System.Drawing.Size(136, 20);
-            this.btnAddStudyResults.Text = "Thêm Kết quả học tập";
-            this.btnAddStudyResults.Click += new System.EventHandler(this.btnAddStudyResults_Click);
-            // 
-            // btnDeleteStudyResults
-            // 
-            this.btnDeleteStudyResults.Name = "btnDeleteStudyResults";
-            this.btnDeleteStudyResults.Size = new System.Drawing.Size(125, 20);
-            this.btnDeleteStudyResults.Text = "Xóa Kết quả học tập";
-            this.btnDeleteStudyResults.Click += new System.EventHandler(this.btnDeleteStudyResults_Click);
-            // 
-            // btnRefesh
-            // 
-            this.btnRefesh.Name = "btnRefesh";
-            this.btnRefesh.Size = new System.Drawing.Size(78, 20);
-            this.btnRefesh.Text = "Xem Tất cả";
-            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
-            // 
-            // cboStudyResultBySubject
-            // 
-            this.cboStudyResultBySubject.FormattingEnabled = true;
-            this.cboStudyResultBySubject.Location = new System.Drawing.Point(475, 3);
-            this.cboStudyResultBySubject.Name = "cboStudyResultBySubject";
-            this.cboStudyResultBySubject.Size = new System.Drawing.Size(276, 21);
-            this.cboStudyResultBySubject.TabIndex = 3;
-            this.cboStudyResultBySubject.SelectedValueChanged += new System.EventHandler(this.cboStudyResultBySubject_SelectedValueChanged);
-            // 
-            // cboSubjectBySemester
-            // 
-            this.cboSubjectBySemester.FormattingEnabled = true;
-            this.cboSubjectBySemester.Location = new System.Drawing.Point(358, 3);
-            this.cboSubjectBySemester.Name = "cboSubjectBySemester";
-            this.cboSubjectBySemester.Size = new System.Drawing.Size(84, 21);
-            this.cboSubjectBySemester.TabIndex = 4;
-            this.cboSubjectBySemester.SelectedIndexChanged += new System.EventHandler(this.cboSubjectBySemester_SelectedIndexChanged);
             // 
             // clMonHoc
             // 
@@ -162,6 +111,63 @@
             this.clDiemTrungBinh.HeaderText = "Điểm Trung Bình";
             this.clDiemTrungBinh.Name = "clDiemTrungBinh";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddStudyResults,
+            this.btnDeleteStudyResults,
+            this.btnRefesh});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(817, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // btnAddStudyResults
+            // 
+            this.btnAddStudyResults.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStudyResults.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnAddStudyResults.Name = "btnAddStudyResults";
+            this.btnAddStudyResults.Size = new System.Drawing.Size(141, 20);
+            this.btnAddStudyResults.Text = "Thêm Kết quả học tập";
+            this.btnAddStudyResults.Click += new System.EventHandler(this.btnAddStudyResults_Click);
+            // 
+            // btnDeleteStudyResults
+            // 
+            this.btnDeleteStudyResults.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteStudyResults.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDeleteStudyResults.Name = "btnDeleteStudyResults";
+            this.btnDeleteStudyResults.Size = new System.Drawing.Size(130, 20);
+            this.btnDeleteStudyResults.Text = "Xóa Kết quả học tập";
+            this.btnDeleteStudyResults.Click += new System.EventHandler(this.btnDeleteStudyResults_Click);
+            // 
+            // btnRefesh
+            // 
+            this.btnRefesh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefesh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnRefesh.Name = "btnRefesh";
+            this.btnRefesh.Size = new System.Drawing.Size(81, 20);
+            this.btnRefesh.Text = "Xem Tất cả";
+            this.btnRefesh.Click += new System.EventHandler(this.btnRefesh_Click);
+            // 
+            // cboStudyResultBySubject
+            // 
+            this.cboStudyResultBySubject.FormattingEnabled = true;
+            this.cboStudyResultBySubject.Location = new System.Drawing.Point(465, 0);
+            this.cboStudyResultBySubject.Name = "cboStudyResultBySubject";
+            this.cboStudyResultBySubject.Size = new System.Drawing.Size(276, 21);
+            this.cboStudyResultBySubject.TabIndex = 3;
+            this.cboStudyResultBySubject.SelectedValueChanged += new System.EventHandler(this.cboStudyResultBySubject_SelectedValueChanged);
+            // 
+            // cboSubjectBySemester
+            // 
+            this.cboSubjectBySemester.FormattingEnabled = true;
+            this.cboSubjectBySemester.Location = new System.Drawing.Point(358, 0);
+            this.cboSubjectBySemester.Name = "cboSubjectBySemester";
+            this.cboSubjectBySemester.Size = new System.Drawing.Size(84, 21);
+            this.cboSubjectBySemester.TabIndex = 4;
+            this.cboSubjectBySemester.SelectedIndexChanged += new System.EventHandler(this.cboSubjectBySemester_SelectedIndexChanged);
+            // 
             // FormStudyResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +180,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormStudyResults";
             this.Text = "DANH SÁCH KẾT QUẢ HỌC TẬP";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormStudyResults_Load);
             ((System.ComponentModel.ISupportInitialize)(this.lstStudyResults)).EndInit();
             this.menuStrip1.ResumeLayout(false);
