@@ -38,7 +38,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.cboClass = new System.Windows.Forms.ComboBox();
+            this.cboSemester = new System.Windows.Forms.ComboBox();
             this.txtMssv = new System.Windows.Forms.TextBox();
             this.txtMidterm = new System.Windows.Forms.TextBox();
             this.txtFinalterm = new System.Windows.Forms.TextBox();
@@ -129,19 +129,20 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(60, 26);
+            this.label9.Location = new System.Drawing.Point(18, 26);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 13);
+            this.label9.Size = new System.Drawing.Size(41, 13);
             this.label9.TabIndex = 48;
-            this.label9.Text = "Lớp";
+            this.label9.Text = "Học kỳ";
             // 
-            // cboClass
+            // cboSemester
             // 
-            this.cboClass.FormattingEnabled = true;
-            this.cboClass.Location = new System.Drawing.Point(91, 23);
-            this.cboClass.Name = "cboClass";
-            this.cboClass.Size = new System.Drawing.Size(130, 21);
-            this.cboClass.TabIndex = 46;
+            this.cboSemester.FormattingEnabled = true;
+            this.cboSemester.Location = new System.Drawing.Point(91, 23);
+            this.cboSemester.Name = "cboSemester";
+            this.cboSemester.Size = new System.Drawing.Size(130, 21);
+            this.cboSemester.TabIndex = 46;
+            this.cboSemester.SelectedIndexChanged += new System.EventHandler(this.cboSemester_SelectedIndexChanged);
             // 
             // txtMssv
             // 
@@ -200,7 +201,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.cboClass);
+            this.Controls.Add(this.cboSemester);
             this.Name = "FormAddStudyResults";
             this.Text = "FormAddStudyResults";
             this.Load += new System.EventHandler(this.FormAddStudyResults_Load);
@@ -221,7 +222,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cboClass;
+        private System.Windows.Forms.ComboBox cboSemester;
         private System.Windows.Forms.TextBox txtMssv;
         private System.Windows.Forms.TextBox txtMidterm;
         private System.Windows.Forms.TextBox txtFinalterm;

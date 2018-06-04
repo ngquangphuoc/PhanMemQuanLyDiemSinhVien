@@ -42,8 +42,6 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cboClass = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtAverage
@@ -104,7 +102,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(287, 27);
+            this.label8.Location = new System.Drawing.Point(24, 27);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(49, 13);
             this.label8.TabIndex = 62;
@@ -113,7 +111,7 @@
             // cboSubject
             // 
             this.cboSubject.FormattingEnabled = true;
-            this.cboSubject.Location = new System.Drawing.Point(338, 24);
+            this.cboSubject.Location = new System.Drawing.Point(97, 24);
             this.cboSubject.Name = "cboSubject";
             this.cboSubject.Size = new System.Drawing.Size(251, 21);
             this.cboSubject.TabIndex = 61;
@@ -163,23 +161,6 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Mã sinh viên";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(66, 27);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(25, 13);
-            this.label9.TabIndex = 65;
-            this.label9.Text = "Lớp";
-            // 
-            // cboClass
-            // 
-            this.cboClass.FormattingEnabled = true;
-            this.cboClass.Location = new System.Drawing.Point(97, 24);
-            this.cboClass.Name = "cboClass";
-            this.cboClass.Size = new System.Drawing.Size(130, 21);
-            this.cboClass.TabIndex = 63;
-            // 
             // FormEditStudyResults
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,8 +180,6 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.cboClass);
             this.Name = "FormEditStudyResults";
             this.Text = "FormEditStudyResults";
             this.Load += new System.EventHandler(this.FormEditStudyResults_Load);
@@ -225,7 +204,5 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox cboClass;
     }
 }

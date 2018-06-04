@@ -18,6 +18,14 @@ using System;
 public partial class sinhvien
 {
 
+    public sinhvien()
+    {
+
+        this.ketquahoctaps = new HashSet<ketquahoctap>();
+
+    }
+
+
     public string mssv { get; set; }
 
     public string hovaten { get; set; }
@@ -33,6 +41,8 @@ public partial class sinhvien
     public Nullable<System.DateTime> ngaysinh { get; set; }
 
 
+
+    public virtual ICollection<ketquahoctap> ketquahoctaps { get; set; }
 
     public virtual lophoc lophoc { get; set; }
 

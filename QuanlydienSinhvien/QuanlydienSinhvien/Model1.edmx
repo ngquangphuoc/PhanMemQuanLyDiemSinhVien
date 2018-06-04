@@ -10,7 +10,7 @@
             <PropertyRef Name="hocki_id" />
           </Key>
           <Property Name="hocki_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="tenhocky" Type="varchar" MaxLength="50" />
+          <Property Name="tenhocky" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ketquahoctap">
           <Key>
@@ -76,6 +76,20 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ketquahoctap_sinhvien">
+          <End Role="sinhvien" Type="Self.sinhvien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ketquahoctap" Type="Self.ketquahoctap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sinhvien">
+              <PropertyRef Name="mssv" />
+            </Principal>
+            <Dependent Role="ketquahoctap">
+              <PropertyRef Name="mssv" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_monhoc_hocky">
           <End Role="hocky" Type="Self.hocky" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -115,6 +129,10 @@
             <End Role="monhoc" EntitySet="monhoc" />
             <End Role="ketquahoctap" EntitySet="ketquahoctap" />
           </AssociationSet>
+          <AssociationSet Name="FK_ketquahoctap_sinhvien" Association="Self.FK_ketquahoctap_sinhvien">
+            <End Role="sinhvien" EntitySet="sinhvien" />
+            <End Role="ketquahoctap" EntitySet="ketquahoctap" />
+          </AssociationSet>
           <AssociationSet Name="FK_monhoc_hocky" Association="Self.FK_monhoc_hocky">
             <End Role="hocky" EntitySet="hocky" />
             <End Role="monhoc" EntitySet="monhoc" />
@@ -143,6 +161,10 @@
             <End Role="monhoc" EntitySet="monhocs" />
             <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
           </AssociationSet>
+          <AssociationSet Name="FK_ketquahoctap_sinhvien" Association="quanlydiemSinhVienModel.FK_ketquahoctap_sinhvien">
+            <End Role="sinhvien" EntitySet="sinhviens" />
+            <End Role="ketquahoctap" EntitySet="ketquahoctaps" />
+          </AssociationSet>
           <AssociationSet Name="FK_sinhvien_lophoc" Association="quanlydiemSinhVienModel.FK_sinhvien_lophoc">
             <End Role="lophoc" EntitySet="lophocs" />
             <End Role="sinhvien" EntitySet="sinhviens" />
@@ -153,7 +175,7 @@
             <PropertyRef Name="hocki_id" />
           </Key>
           <Property Name="hocki_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tenhocky" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="tenhocky" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="monhocs" Relationship="quanlydiemSinhVienModel.FK_monhoc_hocky" FromRole="hocky" ToRole="monhoc" />
         </EntityType>
         <EntityType Name="ketquahoctap">
@@ -168,6 +190,7 @@
           <Property Name="cuoiki" Type="Int32" />
           <Property Name="DTB" Type="Double" />
           <NavigationProperty Name="monhoc" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_monhoc" FromRole="ketquahoctap" ToRole="monhoc" />
+          <NavigationProperty Name="sinhvien" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_sinhvien" FromRole="ketquahoctap" ToRole="sinhvien" />
         </EntityType>
         <EntityType Name="lophoc">
           <Key>
@@ -199,6 +222,7 @@
           <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="lophoc_id" Type="Int32" />
           <Property Name="ngaysinh" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="ketquahoctaps" Relationship="quanlydiemSinhVienModel.FK_ketquahoctap_sinhvien" FromRole="sinhvien" ToRole="ketquahoctap" />
           <NavigationProperty Name="lophoc" Relationship="quanlydiemSinhVienModel.FK_sinhvien_lophoc" FromRole="sinhvien" ToRole="lophoc" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -236,6 +260,20 @@
             </Principal>
             <Dependent Role="ketquahoctap">
               <PropertyRef Name="monhoc_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ketquahoctap_sinhvien">
+          <End Type="quanlydiemSinhVienModel.sinhvien" Role="sinhvien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="quanlydiemSinhVienModel.ketquahoctap" Role="ketquahoctap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sinhvien">
+              <PropertyRef Name="mssv" />
+            </Principal>
+            <Dependent Role="ketquahoctap">
+              <PropertyRef Name="mssv" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

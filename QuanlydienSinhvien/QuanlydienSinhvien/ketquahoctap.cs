@@ -36,6 +36,8 @@ public partial class ketquahoctap
 
     public virtual monhoc monhoc { get; set; }
 
+    public virtual sinhvien sinhvien { get; set; }
+
 }
 
 }

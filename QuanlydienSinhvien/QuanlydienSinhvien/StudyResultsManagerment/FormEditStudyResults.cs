@@ -14,7 +14,7 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
     {
         private ketquahoctap KetQuaHocTap;
 
-        public FormEditStudyResults(ketquahoctap KetQuaHocTap)
+        public FormEditStudyResults(ketquahoctap KetQuaHocTap)//here
         {
             InitializeComponent();
             // TODO: Complete member initialization
@@ -24,13 +24,10 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
         private void FormEditStudyResults_Load(object sender, EventArgs e)
         {
             quanlydiemSinhVienEntities db = new quanlydiemSinhVienEntities();
-            this.cboClass.DataSource = db.lophocs.ToList();
-            this.cboClass.ValueMember = "lophoc_id";
-            this.cboClass.DisplayMember = "tenlop";
-            this.cboSubject.DataSource = db.monhocs.ToList();
-            this.cboSubject.ValueMember = "monhoc_id";
-            this.cboSubject.DisplayMember = "tenMH";
+            this.cboSubject.Text = KetQuaHocTap.monhoc_id.ToString();
+            this.cboSubject.Enabled = false;
             this.txtMssv.Text = KetQuaHocTap.mssv;
+            this.cboSubject.Enabled = false;
             this.txtAttendance.Text = KetQuaHocTap.chuyencan.ToString();
             this.txtMidterm.Text = KetQuaHocTap.giuaki.ToString();
             this.txtFinalterm.Text = KetQuaHocTap.cuoiki.ToString();

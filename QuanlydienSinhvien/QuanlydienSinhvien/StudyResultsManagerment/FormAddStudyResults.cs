@@ -19,13 +19,11 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
 
         private void FormAddStudyResults_Load(object sender, EventArgs e)
         {
-            quanlydiemSinhVienEntities db = new quanlydiemSinhVienEntities();
-            this.cboClass.DataSource = db.lophocs.ToList();
-            this.cboClass.ValueMember = "lophoc_id";
-            this.cboClass.DisplayMember = "tenlop";
-            this.cboSubject.DataSource = db.monhocs.ToList();
-            this.cboSubject.ValueMember = "monhoc_id";
-            this.cboSubject.DisplayMember = "tenMH";
+            var db = new quanlydiemSinhVienEntities();
+            this.cboSemester.DataSource = db.hockies.ToList(); // load list subject and assign to combobox
+            this.cboSemester.ValueMember = "hocki_id"; // set a value subject
+            this.cboSemester.DisplayMember = "tenhocky"; // set the display subject
+            //this.cboStudyResultBySubject.Enabled = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -62,6 +60,16 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cboSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var db = new quanlydiemSinhVienEntities();
+            this.cboSubject.Enabled = true;
+            int semester_id = ((hocky)this.cboSemester.SelectedItem).hocki_id;
+            this.cboSubject.DataSource = db.monhocs.Where(b => b.hocki_id == semester_id).ToList(); // load list subject and assign to combobox
+            this.cboSubject.ValueMember = "monhoc_id"; // set a value subject
+            this.cboSubject.DisplayMember = "tenMH"; // set the display subject
         }
     }
 }

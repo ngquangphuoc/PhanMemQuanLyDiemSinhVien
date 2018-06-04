@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.lstStudyResults = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnAddStudyResults = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDeleteStudyResults = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRefesh = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboStudyResultBySubject = new System.Windows.Forms.ComboBox();
+            this.cboSubjectBySemester = new System.Windows.Forms.ComboBox();
             this.clMonHoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clMSSV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clHoVaTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,12 +42,6 @@
             this.clGiuaky = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clCuoiKy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clDiemTrungBinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnAddStudyResults = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDeleteStudyResults = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRefesh = new System.Windows.Forms.ToolStripMenuItem();
-            this.cboStudyResultBySubject = new System.Windows.Forms.ComboBox();
-            this.cboSubjectBySemester = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.lstStudyResults)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -63,53 +63,6 @@
             this.lstStudyResults.Size = new System.Drawing.Size(817, 296);
             this.lstStudyResults.TabIndex = 0;
             this.lstStudyResults.DoubleClick += new System.EventHandler(this.lstStudyResults_DoubleClick);
-            // 
-            // clMonHoc
-            // 
-            this.clMonHoc.HeaderText = "Môn học";
-            this.clMonHoc.Name = "clMonHoc";
-            this.clMonHoc.Width = 200;
-            // 
-            // clMSSV
-            // 
-            this.clMSSV.DataPropertyName = "mssv";
-            this.clMSSV.HeaderText = "MSSV";
-            this.clMSSV.Name = "clMSSV";
-            this.clMSSV.Width = 80;
-            // 
-            // clHoVaTen
-            // 
-            this.clHoVaTen.HeaderText = "Họ và Tên";
-            this.clHoVaTen.Name = "clHoVaTen";
-            this.clHoVaTen.Width = 160;
-            // 
-            // clChuyenCan
-            // 
-            this.clChuyenCan.DataPropertyName = "chuyencan";
-            this.clChuyenCan.HeaderText = "Chuyên cần";
-            this.clChuyenCan.Name = "clChuyenCan";
-            this.clChuyenCan.Width = 80;
-            // 
-            // clGiuaky
-            // 
-            this.clGiuaky.DataPropertyName = "giuaki";
-            this.clGiuaky.HeaderText = "Giữa Kỳ";
-            this.clGiuaky.Name = "clGiuaky";
-            this.clGiuaky.Width = 80;
-            // 
-            // clCuoiKy
-            // 
-            this.clCuoiKy.DataPropertyName = "cuoiki";
-            this.clCuoiKy.HeaderText = "Cuối Kỳ";
-            this.clCuoiKy.Name = "clCuoiKy";
-            this.clCuoiKy.Width = 80;
-            // 
-            // clDiemTrungBinh
-            // 
-            this.clDiemTrungBinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.clDiemTrungBinh.DataPropertyName = "DTB";
-            this.clDiemTrungBinh.HeaderText = "Điểm Trung Bình";
-            this.clDiemTrungBinh.Name = "clDiemTrungBinh";
             // 
             // menuStrip1
             // 
@@ -167,6 +120,54 @@
             this.cboSubjectBySemester.Size = new System.Drawing.Size(84, 21);
             this.cboSubjectBySemester.TabIndex = 4;
             this.cboSubjectBySemester.SelectedIndexChanged += new System.EventHandler(this.cboSubjectBySemester_SelectedIndexChanged);
+            // 
+            // clMonHoc
+            // 
+            this.clMonHoc.DataPropertyName = "tenMH";
+            this.clMonHoc.HeaderText = "Môn học";
+            this.clMonHoc.Name = "clMonHoc";
+            this.clMonHoc.Width = 200;
+            // 
+            // clMSSV
+            // 
+            this.clMSSV.DataPropertyName = "mssv";
+            this.clMSSV.HeaderText = "MSSV";
+            this.clMSSV.Name = "clMSSV";
+            // 
+            // clHoVaTen
+            // 
+            this.clHoVaTen.DataPropertyName = "hovaten";
+            this.clHoVaTen.HeaderText = "Họ và Tên";
+            this.clHoVaTen.Name = "clHoVaTen";
+            this.clHoVaTen.Width = 160;
+            // 
+            // clChuyenCan
+            // 
+            this.clChuyenCan.DataPropertyName = "chuyencan";
+            this.clChuyenCan.HeaderText = "Chuyên cần";
+            this.clChuyenCan.Name = "clChuyenCan";
+            this.clChuyenCan.Width = 80;
+            // 
+            // clGiuaky
+            // 
+            this.clGiuaky.DataPropertyName = "giuaki";
+            this.clGiuaky.HeaderText = "Giữa Kỳ";
+            this.clGiuaky.Name = "clGiuaky";
+            this.clGiuaky.Width = 80;
+            // 
+            // clCuoiKy
+            // 
+            this.clCuoiKy.DataPropertyName = "cuoiki";
+            this.clCuoiKy.HeaderText = "Cuối Kỳ";
+            this.clCuoiKy.Name = "clCuoiKy";
+            this.clCuoiKy.Width = 80;
+            // 
+            // clDiemTrungBinh
+            // 
+            this.clDiemTrungBinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.clDiemTrungBinh.DataPropertyName = "DTB";
+            this.clDiemTrungBinh.HeaderText = "Điểm Trung Bình";
+            this.clDiemTrungBinh.Name = "clDiemTrungBinh";
             // 
             // FormStudyResults
             // 

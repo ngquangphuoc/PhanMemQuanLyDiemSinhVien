@@ -26,15 +26,43 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
             this.cboStudyResultBySubject.Enabled = false;
         }
 
+        private ketquahoctap findKetQuaHocTapByID(int id) {
+            quanlydiemSinhVienEntities db = new quanlydiemSinhVienEntities();
+            var value = db.ketquahoctaps.Where(b => b.kqht_id == id).FirstOrDefault();
+            return value;
+        }
+
         private void FormStudyResultBySubject_Load(int studyResult_id)
         {
-            var db = new quanlydiemSinhVienEntities();
-            var list = db.ketquahoctaps.Where(b => b.monhoc_id == studyResult_id).ToList();
-            this.lstStudyResults.DataSource = list;
-            this.lstStudyResults.Columns["kqht_id"].Visible = false;
-            this.lstStudyResults.Columns["monhoc"].Visible = false;
-            this.lstStudyResults.Columns["monhoc_id"].Visible = false;
+            quanlydiemSinhVienEntities db = new quanlydiemSinhVienEntities();
+            var lists = (from kq in db.ketquahoctaps
+                         join mon in db.monhocs
+                             on kq.monhoc_id equals mon.monhoc_id
+                         join sv in db.sinhviens
+                            on kq.mssv equals sv.mssv
+                            where kq.monhoc_id == studyResult_id
+                         select new
+                         {
+                             kq.kqht_id,
+                             mon.tenMH,
+                             kq.mssv,
+                             sv.hovaten,
+                             kq.chuyencan,
+                             kq.giuaki,
+                             kq.cuoiki,
+                             kq.DTB
+                         }).ToList();
+
+            //var list = db.ketquahoctaps.Where(b => b.monhoc_id == studyResult_id).ToList();
+            //this.lstStudyResults.DataSource = list;
+            //this.lstStudyResults.Columns["kqht_id"].Visible = false;
+            //this.lstStudyResults.Columns["tenMH"].Visible = false;
+            //this.lstStudyResults.Columns["monhoc_id"].Visible = false;
+            this.lstStudyResults.DataSource = lists;
+            this.lstStudyResults.Refresh();
         }
+
+        
 
         private void cboSubjectBySemester_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -49,11 +77,30 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
         private void ShowStudyResults()
         {
             var db = new quanlydiemSinhVienEntities();
-            var list = db.ketquahoctaps.ToList();
-            this.lstStudyResults.DataSource = list;
-            this.lstStudyResults.Columns["kqht_id"].Visible = false;
-            this.lstStudyResults.Columns["monhoc"].Visible = false;
-            this.lstStudyResults.Columns["monhoc_id"].Visible = false;
+            //var list = db.ketquahoctaps.ToList();
+
+            var lists = (from kq in db.ketquahoctaps
+                         join mon in db.monhocs
+                             on kq.monhoc_id equals mon.monhoc_id
+                         join sv in db.sinhviens
+                            on kq.mssv equals sv.mssv
+                         select new
+                         {
+                             kq.kqht_id,
+                             mon.tenMH,
+                             kq.mssv,
+                             sv.hovaten,
+                             kq.chuyencan,
+                             kq.giuaki,
+                             kq.cuoiki,
+                             kq.DTB
+                         }).ToList();
+
+            this.lstStudyResults.DataSource = lists;
+            this.lstStudyResults.Refresh();
+            //this.lstStudyResults.Columns["kqht_id"].Visible = true;
+            //this.lstStudyResults.Columns["monhoc"].Visible = false;
+            //this.lstStudyResults.Columns["monhoc_id"].Visible = false;
             //this.lstStudyResults.Columns["lophoc_id"].Visible = false;
         }
 
@@ -69,8 +116,9 @@ namespace QuanlydienSinhvien.StudyResultsManagerment
             if (this.lstStudyResults.SelectedRows.Count == 1)
             {
                 var row = this.lstStudyResults.SelectedRows[0];
-                var item = (ketquahoctap)row.DataBoundItem;
-                var form = new FormEditStudyResults(item);
+                var d = row.Cells["kqht_id"].Value.ToString();
+                var ketqua = findKetQuaHocTapByID(Int32.Parse(d));
+                var form = new FormEditStudyResults(ketqua);
                 form.ShowDialog();
                 this.ShowStudyResults();
             }
